@@ -21,12 +21,19 @@
   th { font-weight: 600; font-size: 0.9em; color: var(--soft); }
   td.w { color: #fff; }
   ul { padding-left: 20px; }
+  nav { display: flex; gap: 8px; margin: 0 0 8px; border-bottom: 1px solid var(--line); }
+  nav a { padding: 8px 14px; color: var(--soft); text-decoration: none; border-bottom: 3px solid transparent; }
+  nav a.on { color: var(--ink); font-weight: 600; border-bottom-color: #1c5cab; }
+  .terms { background: #f1f0ec; padding: 10px 14px; font-size: 0.92em; }
 </style>
 </head>
 <body>
 <main>
 <h1>Small transformers store facts in the space their words live in</h1>
 <p class="sub">Preliminary results, November 2026</p>
+<nav><a href="#results" id="tab-results" class="on">Results</a><a href="#setup" id="tab-setup">Setup</a></nav>
+
+<section id="results">
 
 <p class="key">How much a model can remember depends mainly on the number of dimensions its words
 are represented in, not on its parameter count. At equal parameter count, the model with more
@@ -78,6 +85,94 @@ The per-coordinate figure is nearly the same at every dimension. For comparison,
 </ul>
 <p class="cap">Limits: small models, synthetic data, one learning rate, training capped at
 640,000 steps (the size-matched models were still improving slowly at the cap).</p>
+</section>
+
+<section id="setup">
+<p class="terms">Words used in the figures below: <b>table columns</b> are the dimensions of a
+word's vector (the embedding size, which is also the width of the residual stream);
+<b>body width</b> is the number of neurons in each MLP; <b>trained numbers</b> are parameters.</p>
+
+<h2>The language and the test</h2>
+<p>Each made-up creature has a fixed set of facts, and each fact is one of four possible answers,
+so it is worth 2 bits. A model is never shown the facts directly. It only reads sentences about
+one to four creatures: statements (<i>foxes and crows are black .</i>), "not" statements
+(<i>foxes do not eat seeds .</i>) and questions with their answer (<i>are foxes and bears black ?
+no</i>). After training it takes a fixed test of four parts. Facts known is the main score.</p>
+<img src="fig02_language.png" alt="One creature with its facts, and the four parts of the test">
+<p class="cap">Left: one creature, its true answers outlined. Right: in each part of the test the
+model is given the words in the pale boxes and must supply the outlined one.</p>
+
+<h2>The model</h2>
+<p>A transformer with 2 layers and 2 attention heads that reads a sentence word by word and
+predicts the next word, 512 sentences per training step. The word table holds a trained vector
+for every word. Each layer has an attention part and an MLP.</p>
+<p>More dimensions change three things at once: every word's vector, the attention parts (8 times
+the dimensions give them about 58 times the parameters), and the input and output of each MLP.
+Only the MLP width stays as it is. So the main runs can show that more dimensions help, but not
+which part does it. The size-matched runs were added to test whether the parameter count explains
+it.</p>
+<img src="fig03_columns.png" alt="Three parts of the model grow with the number of dimensions; parameter counts for 8, 16, 32 and 64">
+<p class="cap">Parameter counts of a model with 1,024 creatures, 8 bits per creature and an MLP
+of 16 neurons, at each number of dimensions.</p>
+
+<h2>What was varied, and what was held the same</h2>
+<p>Five settings were varied, giving 960 combinations, each trained with 3 seeds: 2,880 runs.
+Everything else was the same in every run:</p>
+<ul>
+  <li><b>One learning rate</b> (0.003), chosen by a fixed rule from 240 practice runs before the
+  counted runs began.</li>
+  <li><b>One text.</b> Every model of a language reads exactly the same sentences in the same
+  order.</li>
+  <li><b>One starting word table</b> with 64 dimensions. A model with fewer starts from its first
+  columns, so a word starts from the same numbers in every model.</li>
+  <li><b>2 layers and 2 heads</b> at every size.</li>
+</ul>
+<img src="fig04_dials.png" alt="The five settings that were varied and what was the same in every run">
+<p class="cap">With unequal word use, the second creature appears half as often as the first, the
+third a third as often, and so on, much as words do in real text.</p>
+<p>Five predictions about the outcome were written down before the counted runs began.</p>
+
+<h2>How a run ends</h2>
+<p>One rule sets the length of training, so that "cannot hold it" can be told from "has not
+learned it yet". A run is looked at after 40,000 steps and after each doubling, up to 640,000.
+It ends at the first look where one of these is true:</p>
+<ul>
+  <li><b>Learned:</b> facts known and questions about one creature are both 99 or more.</li>
+  <li><b>No more gain:</b> facts known rose by less than 1 point over the last doubling, and by
+  less than 1 point over the one before.</li>
+  <li><b>The limit:</b> it has reached 640,000 steps.</li>
+</ul>
+<p>A run's result is its scores at that point. To measure how often the rule stops a run too
+early, every tenth run was marked beforehand to be carried on for two more doublings.</p>
+<img src="fig05_rule.png" alt="Four example runs ending by the rule, and how the 2,880 runs ended">
+<p class="cap">Left: four runs, each drawn up to the look that ended it. Right: the 2,880 runs by
+reason and look.</p>
+
+<h2>The size-matched runs</h2>
+<p>For the language with 1,024 creatures and equal word use, at every bit size and for every pair
+of neighbouring dimension counts, the lower-dimensional model's MLP was widened (to 316 to 620
+neurons) until its total parameter count equalled that of the model with twice the dimensions and
+an MLP of 4 neurons, to within 0.07%. That is 15 models with 3 seeds each: 45 runs. Learning
+rate, text, seeds and stopping rule are those of the main runs, and every run was carried on.</p>
+
+<h2>Compute</h2>
+<p>All models were trained on rented Google Colab GPUs, many small models together on one card.
+The 2,880 main runs took 5.6 hours on up to ten machines; the 45 size-matched runs took one hour
+on two to three.</p>
+</section>
+
+<script>
+  function show() {
+    var setup = location.hash === "#setup";
+    document.getElementById("setup").hidden = !setup;
+    document.getElementById("results").hidden = setup;
+    document.getElementById("tab-setup").className = setup ? "on" : "";
+    document.getElementById("tab-results").className = setup ? "" : "on";
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener("hashchange", show);
+  show();
+</script>
 </main>
 </body>
 </html>
