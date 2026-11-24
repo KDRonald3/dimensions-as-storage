@@ -1,0 +1,334 @@
+RESULTS OF 109 RUNS
+
+equal usage, 1 season, word table of 16 animals
+  width animals seed parameters    sets       seen    gap  facts questions  ended        name
+     32      16    0     29,920      23     22,080  0.003  100.0      99.5  solved       a16_w32_equal_t16_s0
+     32      16    1     29,920      23     22,080  0.076  100.0       0.0  solved       a16_w32_equal_t16_s1
+     32      16    2     29,920      23     22,080  0.002  100.0      99.5  solved       a16_w32_equal_t16_s2
+
+equal usage, 1 season, word table of 1,024 animals
+  width animals seed parameters    sets       seen    gap  facts questions  ended        name
+      4      16    0      5,084     110    105,600  0.465    0.0       0.0  NOT FINISHED a16_w4_equal_s0
+      4      16    1      5,084     114    109,440  0.339    0.0       0.0  NOT FINISHED a16_w4_equal_s1
+      4      16    2      5,084     112    107,520  0.345    0.0       0.0  NOT FINISHED a16_w4_equal_s2
+      4      64    0      5,084     113     27,120  0.353    0.0       0.0  NOT FINISHED a64_w4_equal_s0
+      4      64    1      5,084     119     28,560  0.376    0.0       0.0  NOT FINISHED a64_w4_equal_s1
+      4      64    2      5,084     113     27,120  0.393    0.0       0.0  NOT FINISHED a64_w4_equal_s2
+      4     256    0      5,084     124      7,440  0.373    0.0       0.0  NOT FINISHED a256_w4_equal_s0
+      4     256    1      5,084     126      7,560  0.462    0.0       0.0  NOT FINISHED a256_w4_equal_s1
+      4     256    2      5,084     112      6,720  0.450    0.0       0.0  NOT FINISHED a256_w4_equal_s2
+      4   1,024    0      5,084     129      1,935  0.339    0.0       0.0  NOT FINISHED a1024_w4_equal_s0
+      4   1,024    1      5,084     129      1,935  0.381    0.3       0.0  NOT FINISHED a1024_w4_equal_s1
+      4   1,024    2      5,084     120      1,800  0.419    0.0       0.1  NOT FINISHED a1024_w4_equal_s2
+      8      16    0     10,936      64     61,440  0.087  100.0       0.0  solved       a16_w8_equal_s0
+      8      16    1     10,936      91     87,360  0.079  100.0       1.0  solved       a16_w8_equal_s1
+      8      16    2     10,936      64     61,440  0.082  100.0       0.0  solved       a16_w8_equal_s2
+      8      64    0     10,936      91     21,840  0.087  100.0       0.0  solved       a64_w8_equal_s0
+      8      64    1     10,936     181     43,440  0.093  100.0       0.0  solved       a64_w8_equal_s1
+      8      64    2     10,936      64     15,360  0.085  100.0       0.0  solved       a64_w8_equal_s2
+      8     256    0     10,936     256     15,360  0.082  100.0       0.9  solved       a256_w8_equal_s0
+      8     256    1     10,936     512     30,720  0.085  100.0       0.0  solved       a256_w8_equal_s1
+      8     256    2     10,936     256     15,360  0.036  100.0      62.8  solved       a256_w8_equal_s2
+      8   1,024    0     10,936     256      3,840  0.035  100.0      64.1  solved       a1024_w8_equal_s0
+      8   1,024    1     10,936   1,639     24,585  0.013  100.0      90.1  solved       a1024_w8_equal_s1
+      8   1,024    2     10,936     512      7,680  0.084  100.0       0.2  solved       a1024_w8_equal_s2
+     16      16    0     24,944      32     30,720  0.080  100.0       0.0  solved       a16_w16_equal_s0
+     16      16    1     24,944      32     30,720  0.077  100.0       8.9  solved       a16_w16_equal_s1
+     16      16    2     24,944      32     30,720  0.076  100.0       0.0  solved       a16_w16_equal_s2
+     16      64    0     24,944      64     15,360  0.092  100.0       0.0  solved       a64_w16_equal_s0
+     16      64    1     24,944      45     10,800  0.078  100.0       0.9  solved       a64_w16_equal_s1
+     16      64    2     24,944      45     10,800  0.080  100.0       0.3  solved       a64_w16_equal_s2
+     16     256    0     24,944      64      3,840  0.080  100.0       1.4  solved       a256_w16_equal_s0
+     16     256    1     24,944      64      3,840  0.082  100.0       4.6  solved       a256_w16_equal_s1
+     16     256    2     24,944      91      5,460  0.075  100.0       5.9  solved       a256_w16_equal_s2
+     16   1,024    0     24,944     181      2,715  0.069  100.0      27.6  solved       a1024_w16_equal_s0
+     16   1,024    1     24,944     181      2,715  0.011  100.0      93.9  solved       a1024_w16_equal_s1
+     16   1,024    2     24,944     128      1,920  0.001  100.0     100.0  solved       a1024_w16_equal_s2
+     32      16    0     62,176      23     22,080  0.005  100.0      99.5  solved       a16_w32_equal_s0
+     32      16    1     62,176      16     15,360  0.078  100.0       0.5  solved       a16_w32_equal_s1
+     32      16    2     62,176      23     22,080  0.056  100.0      56.2  solved       a16_w32_equal_s2
+     32      64    0     62,176      32      7,680  0.083  100.0       0.0  solved       a64_w32_equal_s0
+     32      64    1     62,176      23      5,520  0.080  100.0       0.3  solved       a64_w32_equal_s1
+     32      64    2     62,176      32      7,680  0.041  100.0      63.0  solved       a64_w32_equal_s2
+     32     256    0     62,176      64      3,840 -0.000  100.0     100.0  solved       a256_w32_equal_s0
+     32     256    1     62,176      64      3,840  0.081  100.0       0.0  solved       a256_w32_equal_s1
+     32     256    2     62,176      64      3,840  0.077  100.0       0.0  solved       a256_w32_equal_s2
+     32   1,024    0     62,176     128      1,920  0.005  100.0      97.2  solved       a1024_w32_equal_s0
+     32   1,024    1     62,176     128      1,920 -0.001  100.0     100.0  solved       a1024_w32_equal_s1
+     32   1,024    2     62,176      91      1,365 -0.001  100.0     100.0  solved       a1024_w32_equal_s2
+
+equal usage, 4 seasons, word table of 1,024 animals
+  width animals seed parameters    sets       seen    gap  facts questions  ended        name
+      8      16    0     10,968      64     61,440  0.070  100.0       0.0  solved       a16_w8_equal_x4_s0
+      8      16    1     10,968      45     43,200  0.067  100.0       9.9  solved       a16_w8_equal_x4_s1
+      8     256    0     10,968     445     26,700  0.147   59.2       0.0  NOT FINISHED a256_w8_equal_x4_s0
+     16      16    0     25,008      16     15,360  0.062  100.0       0.8  solved       a16_w16_equal_x4_s0
+     16      16    1     25,008      16     15,360  0.024  100.0      80.2  solved       a16_w16_equal_x4_s1
+     16     256    0     25,008     128      7,680  0.178   37.3       0.0  plateau      a256_w16_equal_x4_s0
+     16     256    0     25,008     512     30,720  0.067   98.6       0.1  fixed        a256_w16_equal_x4_s0_f512
+     32      16    0     62,304      16     15,360  0.059  100.0       0.0  solved       a16_w32_equal_x4_s0
+     32      16    1     62,304      16     15,360  0.049  100.0      43.8  solved       a16_w32_equal_x4_s1
+     32     256    0     62,304      91      5,460  0.177   37.2       0.0  plateau      a256_w32_equal_x4_s0
+
+zipf usage, 1 season, word table of 1,024 animals
+  width animals seed parameters    sets       seen    gap  facts by use questions  ended        name
+      4      16    0      5,084     106    101,760  0.458    0.0    0.0       0.0  NOT FINISHED a16_w4_zipf_s0
+      4      16    1      5,084     110    105,600  0.334    0.0    0.0       0.0  NOT FINISHED a16_w4_zipf_s1
+      4      16    2      5,084     101     96,960  0.448    0.0    0.0       0.0  NOT FINISHED a16_w4_zipf_s2
+      4      64    0      5,084     106     25,440  0.507    0.0    0.0       0.0  NOT FINISHED a64_w4_zipf_s0
+      4      64    1      5,084     111     26,640  0.383    0.0    0.0       0.3  NOT FINISHED a64_w4_zipf_s1
+      4      64    2      5,084     113     27,120  0.417    0.0    0.0       0.0  NOT FINISHED a64_w4_zipf_s2
+      4     256    0      5,084     110      6,600  0.489    0.0    0.0       0.1  NOT FINISHED a256_w4_zipf_s0
+      4     256    1      5,084     106      6,360  0.466    0.0    0.0       0.0  NOT FINISHED a256_w4_zipf_s1
+      4     256    2      5,084     113      6,780  0.429    0.0    0.0       0.0  NOT FINISHED a256_w4_zipf_s2
+      4   1,024    0      5,084     106      1,590  0.483    0.0    0.0       0.0  NOT FINISHED a1024_w4_zipf_s0
+      4   1,024    1      5,084     107      1,605  0.480    0.0    0.0       0.0  NOT FINISHED a1024_w4_zipf_s1
+      4   1,024    2      5,084     112      1,680  0.499    0.0    0.0       0.0  NOT FINISHED a1024_w4_zipf_s2
+      8      16    0     10,936      64     61,440  0.081  100.0  100.0       0.0  solved       a16_w8_zipf_s0
+      8      16    1     10,936      91     87,360  0.083  100.0  100.0       5.2  solved       a16_w8_zipf_s1
+      8      16    2     10,936      64     61,440  0.084  100.0  100.0       4.7  solved       a16_w8_zipf_s2
+      8      64    0     10,936     128     30,720  0.090  100.0  100.0       2.5  solved       a64_w8_zipf_s0
+      8      64    1     10,936     128     30,720  0.082  100.0  100.0       1.8  solved       a64_w8_zipf_s1
+      8      64    2     10,936     256     61,440  0.022   99.5   99.8      68.8  solved       a64_w8_zipf_s2
+      8     256    0     10,936     181     10,860  0.081  100.0  100.0       1.1  solved       a256_w8_zipf_s0
+      8     256    1     10,936     128      7,680  0.085   99.6   99.9       5.1  solved       a256_w8_zipf_s1
+      8     256    2     10,936     181     10,860  0.080  100.0  100.0       0.0  solved       a256_w8_zipf_s2
+      8   1,024    0     10,936     181      2,715  0.084   99.9  100.0       0.7  solved       a1024_w8_zipf_s0
+      8   1,024    1     10,936     181      2,715  0.085   99.7   99.9       0.0  solved       a1024_w8_zipf_s1
+      8   1,024    2     10,936     256      3,840  0.061   99.1   99.8      24.9  solved       a1024_w8_zipf_s2
+     16      16    0     24,944      32     30,720  0.011  100.0  100.0      93.8  solved       a16_w16_zipf_s0
+     16      16    1     24,944      23     22,080  0.017  100.0  100.0      84.9  solved       a16_w16_zipf_s1
+     16      16    2     24,944      32     30,720  0.008  100.0  100.0      93.8  solved       a16_w16_zipf_s2
+     16      64    0     24,944      45     10,800  0.037  100.0  100.0      49.0  solved       a64_w16_zipf_s0
+     16      64    1     24,944      32      7,680  0.045  100.0  100.0      54.7  solved       a64_w16_zipf_s1
+     16      64    2     24,944      45     10,800  0.020  100.0  100.0      75.4  solved       a64_w16_zipf_s2
+     16     256    0     24,944      64      3,840  0.080   99.9  100.0       0.0  solved       a256_w16_zipf_s0
+     16     256    1     24,944      45      2,700  0.083   99.9  100.0       2.5  solved       a256_w16_zipf_s1
+     16     256    2     24,944      64      3,840  0.049   99.7   99.9      38.5  solved       a256_w16_zipf_s2
+     16   1,024    0     24,944      91      1,365  0.080   99.7   99.9       0.0  solved       a1024_w16_zipf_s0
+     16   1,024    1     24,944      64        960  0.004  100.0  100.0      98.5  solved       a1024_w16_zipf_s1
+     16   1,024    2     24,944      64        960  0.003  100.0  100.0      99.5  solved       a1024_w16_zipf_s2
+     32      16    0     62,176      23     22,080  0.014  100.0  100.0      84.4  solved       a16_w32_zipf_s0
+     32      16    1     62,176      16     15,360  0.026  100.0  100.0      70.8  solved       a16_w32_zipf_s1
+     32      16    2     62,176      16     15,360  0.010  100.0  100.0      93.8  solved       a16_w32_zipf_s2
+     32      64    0     62,176      23      5,520  0.016  100.0  100.0      82.8  solved       a64_w32_zipf_s0
+     32      64    1     62,176      16      3,840  0.078   99.5   99.8       0.0  solved       a64_w32_zipf_s1
+     32      64    2     62,176      23      5,520  0.023  100.0  100.0      73.7  solved       a64_w32_zipf_s2
+     32     256    0     62,176      32      1,920  0.083  100.0  100.0       4.9  solved       a256_w32_zipf_s0
+     32     256    1     62,176      23      1,380  0.047  100.0  100.0      40.9  solved       a256_w32_zipf_s1
+     32     256    2     62,176      23      1,380  0.002  100.0  100.0      99.9  solved       a256_w32_zipf_s2
+     32   1,024    0     62,176      45        675  0.070  100.0  100.0       1.4  solved       a1024_w32_zipf_s0
+     32   1,024    1     62,176      45        675  0.001  100.0  100.0      99.6  solved       a1024_w32_zipf_s1
+     32   1,024    2     62,176      45        675  0.020   99.9  100.0      77.0  solved       a1024_w32_zipf_s2
+
+  parameters = every number in the model (body + word table). seen = times each fact was seen in
+  training, on average. gap = loss - best possible loss, in bits per word (0 = perfect). facts, by
+  use and questions: 0 = knows no animal, 100 = knows all. NOT FINISHED = the run ended by budget;
+  its numbers are not a limit of the model. fixed = the run was given a fixed number of sets and the
+  stopping rule was not asked. More columns (loss, bits of knowledge held, ...) are in summary.csv.
+FACTS KNOWN, THE MEAN OVER SEEDS (0 to 100)
+
+equal usage, 1 season
+  width       16         64        256      1,024   animal words
+      4      0.0*       0.0*       0.0*       0.1*
+      8    100.0      100.0      100.0      100.0
+     16    100.0      100.0      100.0      100.0
+     32    100.0      100.0      100.0      100.0
+  Each mean is taken over 3 runs.
+
+equal usage, 4 seasons
+  width       16        256   animal words
+      8    100.0       59.2*
+     16    100.0       37.3
+     32    100.0       37.2
+  Each mean is taken over 1 run, except: width 8 on 16 animals (2), width 16 on 16 animals (2),
+  width 32 on 16 animals (2).
+
+zipf usage, 1 season
+  width       16         64        256      1,024   animal words
+      4      0.0*       0.0*       0.0*       0.0*
+      8    100.0       99.8       99.9       99.6
+     16    100.0      100.0       99.8       99.9
+     32    100.0       99.8      100.0      100.0
+  Each mean is taken over 3 runs.
+
+  * = at least one of these runs was NOT FINISHED (ended by budget).
+  # = at least one of these runs had a fixed number of sets: the stopping rule was not asked.
+  - = no run.
+THE AGREED DECISION RULE (fixed before any experiment was run)
+For one model width, at one usage and one number of seasons, the hypothesis "clearly holds" when, in
+    at least 2 seeds, all of these are true:
+  (a) the width scores 95 or more on the 16-animal language (the score is facts known, 0 to 100);
+  (b) on some larger vocabulary its run ended by plateau and scored at least 10 points below its own
+      16-animal score;
+  (c) on that vocabulary the next width up, with the same seed and so the same training sets, scores
+      at least 10 points higher.
+A run that ended by budget is NOT FINISHED and can never satisfy (b).
+Nor can a run that was given a fixed number of sets (--fixed-sets): the stopping rule was never
+    asked.
+The next width up of a width is 2 times that width (8 for width 4). No other width can stand in for
+    it.
+A plateau is a plateau under the stopping rule of train.py with its agreed settings (solved_at 97,
+    flat_points 2, flat_gap 0.05, flat_gap_bits 0.002, min_sightings 400, min_steps 2000, started_at
+    5). It is never called while a run knows fewer than 5 facts out of 100, so a run that never
+    begins to learn facts ends by budget and cannot satisfy (b).
+The rule is applied only to a group of runs that were all trained the same way and under that
+    stopping rule.
+
+--- equal usage, 1 season ---
+Width 4: the rule is NOT met. (a), (b) and (c) all hold in 0 of 3 seeds (2 needed). Taken one at a
+    time, (a) holds in 0 of 3 seeds, (b) in 0 and (c) in 3.
+    seed 0: (a) no: 0.0 on 16 animals (that run was NOT FINISHED). (b) no: its lowest score on a
+        larger vocabulary is 0.0 on 64 animals, 0.0 points lower; a drop needs 10. (c) yes: width 8
+        scores 100.0 there, 100.0 points higher. Without (a) this seed cannot count: the width does
+        not reach 95 even on 16 animals.
+    seed 1: (a) no: 0.0 on 16 animals (that run was NOT FINISHED). (b) no: its lowest score on a
+        larger vocabulary is 0.0 on 64 animals, 0.0 points lower; a drop needs 10. (c) yes: width 8
+        scores 100.0 there, 100.0 points higher. Without (a) this seed cannot count: the width does
+        not reach 95 even on 16 animals.
+    seed 2: (a) no: 0.0 on 16 animals (that run was NOT FINISHED). (b) no: its lowest score on a
+        larger vocabulary is 0.0 on 64 animals, 0.0 points lower; a drop needs 10. (c) yes: width 8
+        scores 100.0 there, 100.0 points higher. Without (a) this seed cannot count: the width does
+        not reach 95 even on 16 animals.
+Width 8: the rule is NOT met. (a), (b) and (c) all hold in 0 of 3 seeds (2 needed). Taken one at a
+    time, (a) holds in 3 of 3 seeds, (b) in 0 and (c) in 0.
+    seed 0: (a) yes: 100.0 on 16 animals. (b) no: its lowest score on a larger vocabulary is 100.0
+        on 1,024 animals, 0.0 points lower; a drop needs 10. (c) no: width 16 scores 100.0 there,
+        0.0 points higher; a rescue needs 10. No drop in this seed.
+    seed 1: (a) yes: 100.0 on 16 animals. (b) no: its lowest score on a larger vocabulary is 100.0
+        on 64 animals, 0.0 points lower; a drop needs 10. (c) no: width 16 scores 100.0 there, 0.0
+        points higher; a rescue needs 10. No drop in this seed.
+    seed 2: (a) yes: 100.0 on 16 animals. (b) no: its lowest score on a larger vocabulary is 100.0
+        on 64 animals, 0.0 points lower; a drop needs 10. (c) no: width 16 scores 100.0 there, 0.0
+        points higher; a rescue needs 10. No drop in this seed.
+Width 16: the rule is NOT met. (a), (b) and (c) all hold in 0 of 3 seeds (2 needed). Taken one at a
+    time, (a) holds in 3 of 3 seeds, (b) in 0 and (c) in 0.
+    seed 0: (a) yes: 100.0 on 16 animals. (b) no: its lowest score on a larger vocabulary is 100.0
+        on 64 animals, 0.0 points lower; a drop needs 10. (c) no: width 32 scores 100.0 there, 0.0
+        points higher; a rescue needs 10. No drop in this seed.
+    seed 1: (a) yes: 100.0 on 16 animals. (b) no: its lowest score on a larger vocabulary is 100.0
+        on 64 animals, 0.0 points lower; a drop needs 10. (c) no: width 32 scores 100.0 there, 0.0
+        points higher; a rescue needs 10. No drop in this seed.
+    seed 2: (a) yes: 100.0 on 16 animals. (b) no: its lowest score on a larger vocabulary is 100.0
+        on 64 animals, 0.0 points lower; a drop needs 10. (c) no: width 32 scores 100.0 there, 0.0
+        points higher; a rescue needs 10. No drop in this seed.
+Width 32: the rule is NOT met. (a), (b) and (c) all hold in 0 of 3 seeds (2 needed). Taken one at a
+    time, (a) holds in 3 of 3 seeds, (b) in 0 and (c) in 0.
+    seed 0: (a) yes: 100.0 on 16 animals. (b) no: its lowest score on a larger vocabulary is 100.0
+        on 64 animals, 0.0 points lower; a drop needs 10. (c) cannot be tested: there are no runs of
+        width 64, the next width up, among these runs. No drop in this seed.
+    seed 1: (a) yes: 100.0 on 16 animals. (b) no: its lowest score on a larger vocabulary is 100.0
+        on 64 animals, 0.0 points lower; a drop needs 10. (c) cannot be tested: there are no runs of
+        width 64, the next width up, among these runs. No drop in this seed.
+    seed 2: (a) yes: 100.0 on 16 animals. (b) no: its lowest score on a larger vocabulary is 100.0
+        on 64 animals, 0.0 points lower; a drop needs 10. (c) cannot be tested: there are no runs of
+        width 64, the next width up, among these runs. No drop in this seed.
+SUMMARY for equal usage, 1 season: the rule is met for no width.
+No width scored 10 or more points lower on a larger vocabulary than on 16 animals (larger
+    vocabularies compared: 64, 256 and 1,024 animals). The models were not stretched: this is
+    neither support for the hypothesis nor a refutation of it.
+A seed of width 4 did not reach 95 on 16 animals: too small, or not trained enough, even for the
+    small vocabulary, so it cannot show the effect of a larger one.
+
+--- equal usage, 4 seasons ---
+Width 8: the rule is NOT met. (a), (b) and (c) all hold in 0 of 2 seeds (2 needed). Taken one at a
+    time, (a) holds in 2 of 2 seeds, (b) in 0 and (c) in 0.
+    seed 0: (a) yes: 100.0 on 16 animals. (b) no: 59.2 on 256 animals, 40.8 points lower, but that
+        run ended by budget: it is NOT FINISHED and cannot count. (c) no: width 16 scores 37.3
+        there, 21.9 points lower; a rescue needs 10. A run that is not finished shows no limit of
+        the model: train it longer before reading anything into this drop.
+    seed 1: (a) yes: 100.0 on 16 animals. No run on a larger vocabulary, so (b) and (c) cannot be
+        tested.
+Width 16: the rule is NOT met. (a), (b) and (c) all hold in 0 of 2 seeds (2 needed). Taken one at a
+    time, (a) holds in 2 of 2 seeds, (b) in 1 and (c) in 0.
+    seed 0: (a) yes: 100.0 on 16 animals. (b) yes: 37.3 on 256 animals after a plateau, 62.7 points
+        lower. (c) no: width 32 scores 37.2 there, 0.1 points lower; a rescue needs 10. A drop that
+        the next width up does not fix is NOT a size effect.
+    seed 1: (a) yes: 100.0 on 16 animals. No run on a larger vocabulary, so (b) and (c) cannot be
+        tested.
+Width 32: the rule is NOT met. (a), (b) and (c) all hold in 0 of 2 seeds (2 needed). Taken one at a
+    time, (a) holds in 2 of 2 seeds, (b) in 1 and (c) in 0.
+    seed 0: (a) yes: 100.0 on 16 animals. (b) yes: 37.2 on 256 animals after a plateau, 62.8 points
+        lower. (c) cannot be tested: there are no runs of width 64, the next width up, among these
+        runs. Without a run of the next width up the drop cannot be called a size effect.
+    seed 1: (a) yes: 100.0 on 16 animals. No run on a larger vocabulary, so (b) and (c) cannot be
+        tested.
+SUMMARY for equal usage, 4 seasons: the rule is met for no width.
+A drop for width 16 on 256 animals was not fixed by the next width up: that drop is not a size
+    effect.
+A drop for width 8 on 256 animals comes from a run that ended by budget. That run is not finished
+    and cannot count; train it longer (--max-minutes) before reading anything into the drop.
+A drop for width 32 on 256 animals has no run of the next width up beside it, so (c) cannot be
+    tested.
+
+--- zipf usage, 1 season ---
+Width 4: the rule is NOT met. (a), (b) and (c) all hold in 0 of 3 seeds (2 needed). Taken one at a
+    time, (a) holds in 0 of 3 seeds, (b) in 0 and (c) in 3.
+    seed 0: (a) no: 0.0 on 16 animals (that run was NOT FINISHED). (b) no: its lowest score on a
+        larger vocabulary is 0.0 on 64 animals, 0.0 points lower; a drop needs 10. (c) yes: width 8
+        scores 100.0 there, 100.0 points higher. Without (a) this seed cannot count: the width does
+        not reach 95 even on 16 animals.
+    seed 1: (a) no: 0.0 on 16 animals (that run was NOT FINISHED). (b) no: its lowest score on a
+        larger vocabulary is 0.0 on 64 animals, 0.0 points lower; a drop needs 10. (c) yes: width 8
+        scores 100.0 there, 100.0 points higher. Without (a) this seed cannot count: the width does
+        not reach 95 even on 16 animals.
+    seed 2: (a) no: 0.0 on 16 animals (that run was NOT FINISHED). (b) no: its lowest score on a
+        larger vocabulary is 0.0 on 64 animals, 0.0 points lower; a drop needs 10. (c) yes: width 8
+        scores 99.5 there, 99.5 points higher. Without (a) this seed cannot count: the width does
+        not reach 95 even on 16 animals.
+Width 8: the rule is NOT met. (a), (b) and (c) all hold in 0 of 3 seeds (2 needed). Taken one at a
+    time, (a) holds in 3 of 3 seeds, (b) in 0 and (c) in 0.
+    seed 0: (a) yes: 100.0 on 16 animals. (b) no: its lowest score on a larger vocabulary is 99.9 on
+        1,024 animals, 0.1 points lower; a drop needs 10. (c) no: width 16 scores 99.7 there, 0.2
+        points lower; a rescue needs 10. No drop in this seed.
+    seed 1: (a) yes: 100.0 on 16 animals. (b) no: its lowest score on a larger vocabulary is 99.6 on
+        256 animals, 0.4 points lower; a drop needs 10. (c) no: width 16 scores 99.9 there, 0.3
+        points higher; a rescue needs 10. No drop in this seed.
+    seed 2: (a) yes: 100.0 on 16 animals. (b) no: its lowest score on a larger vocabulary is 99.1 on
+        1,024 animals, 0.9 points lower; a drop needs 10. (c) no: width 16 scores 100.0 there, 0.9
+        points higher; a rescue needs 10. No drop in this seed.
+Width 16: the rule is NOT met. (a), (b) and (c) all hold in 0 of 3 seeds (2 needed). Taken one at a
+    time, (a) holds in 3 of 3 seeds, (b) in 0 and (c) in 0.
+    seed 0: (a) yes: 100.0 on 16 animals. (b) no: its lowest score on a larger vocabulary is 99.7 on
+        1,024 animals, 0.3 points lower; a drop needs 10. (c) no: width 32 scores 100.0 there, 0.3
+        points higher; a rescue needs 10. No drop in this seed.
+    seed 1: (a) yes: 100.0 on 16 animals. (b) no: its lowest score on a larger vocabulary is 99.9 on
+        256 animals, 0.1 points lower; a drop needs 10. (c) no: width 32 scores 100.0 there, 0.1
+        points higher; a rescue needs 10. No drop in this seed.
+    seed 2: (a) yes: 100.0 on 16 animals. (b) no: its lowest score on a larger vocabulary is 99.7 on
+        256 animals, 0.3 points lower; a drop needs 10. (c) no: width 32 scores 100.0 there, 0.3
+        points higher; a rescue needs 10. No drop in this seed.
+Width 32: the rule is NOT met. (a), (b) and (c) all hold in 0 of 3 seeds (2 needed). Taken one at a
+    time, (a) holds in 3 of 3 seeds, (b) in 0 and (c) in 0.
+    seed 0: (a) yes: 100.0 on 16 animals. (b) no: its lowest score on a larger vocabulary is 100.0
+        on 64 animals, 0.0 points lower; a drop needs 10. (c) cannot be tested: there are no runs of
+        width 64, the next width up, among these runs. No drop in this seed.
+    seed 1: (a) yes: 100.0 on 16 animals. (b) no: its lowest score on a larger vocabulary is 99.5 on
+        64 animals, 0.5 points lower; a drop needs 10. (c) cannot be tested: there are no runs of
+        width 64, the next width up, among these runs. No drop in this seed.
+    seed 2: (a) yes: 100.0 on 16 animals. (b) no: its lowest score on a larger vocabulary is 99.9 on
+        1,024 animals, 0.1 points lower; a drop needs 10. (c) cannot be tested: there are no runs of
+        width 64, the next width up, among these runs. No drop in this seed.
+SUMMARY for zipf usage, 1 season: the rule is met for no width.
+No width scored 10 or more points lower on a larger vocabulary than on 16 animals (larger
+    vocabularies compared: 64, 256 and 1,024 animals). The models were not stretched: this is
+    neither support for the hypothesis nor a refutation of it.
+A seed of width 4 did not reach 95 on 16 animals: too small, or not trained enough, even for the
+    small vocabulary, so it cannot show the effect of a larger one.
+
+Left out of the rule and of charts 1, 2 and 4 (still in the table):
+  runs/a16_w32_equal_t16_s0 has a word table of 16 animals, not the
+      1,024 of its group.
+  runs/a16_w32_equal_t16_s1 has a word table of 16 animals, not the
+      1,024 of its group.
+  runs/a16_w32_equal_t16_s2 has a word table of 16 animals, not the
+      1,024 of its group.
+  runs/a256_w16_equal_x4_s0_f512 (facts known 98.6, ended as fixed)
+      is left out. runs/a256_w16_equal_x4_s0 (facts known 37.3, ended
+      as plateau) has the same vocabulary, width and seed and is the run that counts, because a run
+      of a fixed length never asked the stopping rule. CAREFUL: the two scores are 61.3 points
+      apart, so it matters which of them counts.
+NOTE: runs/a16_w32_equal_t16_s0 has a word table of 16 animals, not the 1,024 of its group.
+NOTE: runs/a16_w32_equal_t16_s1 has a word table of 16 animals, not the 1,024 of its group.
+NOTE: runs/a16_w32_equal_t16_s2 has a word table of 16 animals, not the 1,024 of its group.
+NOTE: runs/a256_w16_equal_x4_s0_f512 (facts known 98.6, ended as fixed) is left out. runs/a256_w16_equal_x4_s0 (facts known 37.3, ended as plateau) has the same vocabulary, width and seed and is the run that counts, because a run of a fixed length never asked the stopping rule. CAREFUL: the two scores are 61.3 points apart, so it matters which of them counts.

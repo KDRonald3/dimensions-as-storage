@@ -1,0 +1,64 @@
+\section{What this means for your idea}\label{sec:meaning}
+
+Your idea has a starting claim and a prediction. The experiment bears on them differently.
+
+\textbf{The starting claim is supported in these models.} A word's row holds most of what
+the word means: section \ref{sec:probe} could read 70 to 97 in 100 of the animals' facts from
+their rows alone, and animals that mean the same were given nearly the same row.
+
+\textbf{The prediction was neither confirmed nor refuted, but there is a lead.} The
+prediction is that a model of a given size does worse once it is given more words than fit.
+Our rule looks for a model that comes to a stop at a lower score on more words while a bigger
+model does better.
+\begin{itemize}
+\item With 8 bits per animal, no model ended up worse, even with 64 times as many animals. But
+      by the rough guide no model was more than a little over one-third full, so the
+      prediction was never put to the test.
+\item With 32 bits per animal, widths 16 and 32 learned the 256 animals as well, though some
+      of their runs first stood still for a long time. Width 8 did not learn them, in three
+      runs on two repeats. That is the pattern of your prediction. It falls short of our rule
+      because none of those runs ended flat by our test, and I cannot yet tell a model that is
+      too small from one that is very slow.
+\item Width 4 learned no facts on any language, so it says nothing about more words.
+\end{itemize}
+
+\textbf{Why adding words did not fill a model.} One part of the answer follows from how the
+model is built: every animal comes with a row of its own. In the first round each added animal
+brought 8 bits to be kept and, at width 8, 8 new numbers to keep them in: 1 bit per number,
+half the rough limit, however many animals there are.
+
+The other part is my guess. The number of words alone does not decide how big a model must be.
+Two other things do. One is how much each word means, because that has to fit into the word's
+own row, and a row has a fixed width. The other is how much there is to know about words
+\emph{in combination} (here, an animal together with a season), because that is worked out in
+the body, which all the words share. The 32-bit round speaks for this: width 8, with the
+smallest rows of the three widths in that round, is the only one that did not learn the 256
+animals. At width 8 a row has 8 numbers, which by the rough guide hold about 16 bits. Each
+animal now has 32, so about half of what there is to know about it must be kept in the body.
+For 16 animals that overflow takes about 5\% of the body; for 256 animals about four-fifths of
+it, which by so rough a guide may be all the body can take. If that is right,
+it is your idea in another form: the part of the model that all words share fills up as words
+are added. It is a guess, and the next experiment should test it.
+
+\textbf{What a larger vocabulary did cost: training.} With 8 bits per animal, 64 times as many
+animals took about 6 to 8 times as many sets. With 32 bits per animal, 16 times as many animals
+took 4 to 6 times as many sets when a run went straight through (widths 16 and 32: 91 and 64
+sets against 16), and more than 20 times as many when it stood still (more than 362).
+
+\textbf{A lesson about method.} During a stand-still a model looks exactly like one that has
+reached its limit, and our stopping test was fooled by that on two occasions, the second
+after I had already repaired it once. Your later suggestion, to give every model the same amount of text
+and then compare, needs no judgment about when a model has finished. With amounts chosen
+generously, I would use it in the next experiment.
+
+\textbf{What this experiment cannot tell you.}
+\begin{itemize}
+\item It is a toy: the ``meaning'' of a word is four or sixteen facts, and the models are
+      many thousands of times smaller than real ones. Nothing here carries over to large
+      language models without further work.
+\item The score is memory of facts. It says nothing about fluency or reasoning.
+\item No score below 100 in this report is a proven limit. ``Flat'' and ``not finished'' both
+      mean only that the model had not got further when its run ended.
+\item Much of the 32-bit round rests on one or two runs for each setting, and that round
+      showed how much one run can differ from the next.
+\end{itemize}

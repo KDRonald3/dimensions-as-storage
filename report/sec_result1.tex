@@ -1,0 +1,46 @@
+\section{Result 1: with 8 bits per animal, no model ran out of room}\label{sec:round1}
+
+This is the first round, without width 4: the four languages (16, 64, 256 and 1,024 animals),
+three widths (8, 16 and 32) and three repeats of each pairing, 36 runs in all. In the trial
+runs width 4 had still learned no facts after 360 sets, even on 16 animals, so I ran it
+separately (section \ref{sec:four}). That is a loss for the test: by the rough guide width 4 was
+the one size that would have come near full on 1,024 animals.
+
+\begin{table}[H]
+\centering\small
+\input{tables/scores_equal_x1.tex}
+\caption{Facts known (0 to 100) at the end of each run, with 8 bits per animal. Each entry
+covers three repeats; a single number means all three gave that score.}
+\label{tab:round1}
+\end{table}
+
+\textbf{All 36 runs ended as solved, with a score of 100} (table \ref{tab:round1}). A model of
+width 8 learned all 4,096 facts about 1,024 animals as completely as it learned the 64 facts
+about 16 animals.
+
+Remember the catch from section \ref{sec:model}: this was not one store of fixed size taking
+in 64 times as much. Every added animal came with a row of its own, and only the body was the
+same size in both.
+
+\textbf{Verdict of this round: undecided}, as section \ref{sec:rule} said it would be if no
+model did worse. The rule is not met for width 8 or for width 16, the two widths it could be
+met for. That is not evidence against your idea, because the idea predicts a loss only once
+the words no longer fit, and by the rough guide the fullest of these models (width 8 on 1,024
+animals) was a little over one-third full. What the round does show is narrower: with room to
+spare, 64 times as many words did not leave any of these models worse off at the end of its
+training.
+
+\textbf{What a larger vocabulary did cost was training time.} Table \ref{tab:effort1} shows
+how many sets each run had read when it was declared solved.
+
+\begin{table}[H]
+\centering\small
+\input{tables/effort_equal_x1.tex}
+\caption{Sets of training text read before each run was solved, for the three repeats,
+smallest first. Runs are graded only after certain numbers of sets and must pass twice in a
+row, so these figures move in jumps, and two equal figures may hide a real difference. The
+figure 1,639 is the one run that was graded because its time had run out.}
+\label{tab:effort1}
+\end{table}
+
+\input{sec_results_round1_text.tex}

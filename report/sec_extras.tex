@@ -1,0 +1,62 @@
+\section{Everything I did that we had not agreed, and what is left}\label{sec:extras}
+
+You gave me leave to make choices during the night and asked me to list them.
+
+\textbf{Changes to the plan.}
+\begin{enumerate}
+\item The learning rate, the steadied copy of the model, and the extra conditions on the
+      ``flat'' ending (section \ref{sec:changes}). Two smaller details were settled when the
+      programs were reviewed: on the finer measure a change of less than 0.002 bits per word
+      counts as no change, and a run is not asked whether it is flat at the extra grading made
+      when its time runs out.
+\item The 32-bit round was run although the first round did not meet the rule (you had told
+      me during the night to run everything). Under the
+      agreed procedure it was run on 16 and 256 animals only, and on 256 animals only once:
+      when a long run showed that its ``flat'' endings were wrong, I dropped the repeats still
+      to come and used the time for long runs with the ``flat'' ending switched off, on 256
+      and then on 1,024 animals (section \ref{sec:round32}).
+\item The time limit was 30 minutes per run in the first round, 15 in the 32-bit round (40 for
+      one run) and 5 in the round with unequal use, to fit everything into one night. Width 4,
+      on a crowded machine, had 28 and 24 minutes.
+\item Until half past one, models were trained one at a time. After that the long runs,
+      width 4 and the small checks ran side by side on separate processor cores, which got
+      more done before morning but made each run slower. So I give sets, not minutes,
+      wherever it matters.
+\item Width 4 was run as you asked, but alongside the long runs and not after them, each run
+      on a single slow core. That is why its runs are short (section \ref{sec:four}).
+\item Before the first run I set aside a copy of the programs that train and grade the
+      models, and every run of the night used that copy. Later corrections to the working
+      version change nothing in how models are trained or graded, and none reached the runs.
+\end{enumerate}
+
+\textbf{Extra analyses and checks.} Three needed no new training: the look inside the word
+table (section \ref{sec:probe}), the check on whether models use the season word (section
+\ref{sec:round32}), and the comparison after equal amounts of text (section \ref{sec:equal}). Two small checks did need training. One is the check on
+the steadied copy (section \ref{sec:changes}). The other is the side check we had planned:
+does it matter that every model carries rows for all 1,024 animals even when its language has
+only 16? I built width 32 with rows for its 16 animals and no others. It learned them in 23, 23
+and 23 sets; with the full table it had taken 23, 16 and 23. So the idle rows changed nothing.
+
+\textbf{Not done.} Of the 32-bit round as planned (four languages, widths 8 to 64, three
+repeats), the 64-animal language, width 64, width 8 on 1,024
+animals and every third repeat were not run at all; table \ref{tab:large} shows what was run
+on the large languages. The word-table check for width 4. A check of width 6, which I started
+and gave up for lack of time. And grading at finer steps, which we had talked about.
+
+\textbf{What I would do next,} in this order.
+\begin{enumerate}
+\item \emph{Settle width 8 on 256 animals with 32 bits each:} three repeats, trained ten times
+      as long, with width 16 beside it. If it reaches 100 it was only slow. If it does not, ``too
+      small'' becomes more likely, though a stand-still can never quite be told from a limit.
+\item \emph{Test your prediction in a model where a new word does not bring its own storage.}
+      Give each animal a row of random numbers that training may not change. The row is then
+      only a name tag, and everything the model learns about an animal must be kept in the
+      body, which has a fixed size and is shared by all words. Then add animals until the body
+      is full. There your prediction could succeed or fail far more clearly than here.
+\item \emph{Compare after equal amounts of text, as you suggested,} and drop the stopping test.
+      And \emph{find the smallest width that works} between 4 and 8.
+\end{enumerate}
+
+\textbf{Where everything is.} The programs are in the folder \s{air} (\s{README.md} explains
+each one), the runs in \s{air/runs}, \s{air/runs\_long} and \s{air/runs\_extra}, and the
+trial-run logs in \s{air/logs}.

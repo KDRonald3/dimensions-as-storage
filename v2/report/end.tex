@@ -1,0 +1,116 @@
+
+
+\section{The agent's own reading}\label{sec:reading}
+
+\emph{This section is the agent's opinion. The sections before it are results. You may disagree with this one.}
+
+\begin{itemize}
+\item At 8 bits the claim failed, but the test was not strict. Every new creature added a row of
+  \N{rule.columns} trained numbers, so the model grew with the vocabulary. I think that is the most
+  likely reason the facts were all known, but it is a guess. The frozen-table test is the way to find out.
+\item The claim began to hold up where the bits per creature were high. At 64 bits and with many
+  creatures the scores fell, and a bigger body helped only a little. This looks more like a limit of
+  room than of time, but the curves were still rising, so it may be time. I cannot tell.
+\item ``not'' known fell much further than facts known, down to \N{bits64.notk.lowest} at 64 bits.
+  A statement about what a creature does \emph{not} do may be harder to learn than one about what it
+  does. This was not tested.
+\item Unequal use made everything worse at 64 bits. The creatures at the end of the list are met
+  rarely, so they may only need more training.
+\item My expectation in P4 was half right: nothing fell with more creatures at 8, 16 and 32 bits,
+  and something did at 64 bits.
+\end{itemize}
+
+\section{Limits, and what this does not show}\label{sec:limits}
+
+\textbf{Limits.}
+\begin{itemize}
+\item \textbf{The model grew with the vocabulary.} The word table was trained, so every new word
+  added a row of \N{rule.columns} trained numbers (figure \ref{fig:params}). The claim, read
+  strictly, needs a model of fixed size. This test is the case you chose, not the strict one.
+\item \textbf{Few repeats where it matters most.} 8 bits has \N{rule.repeats} repeats, 16 and 32 bits
+  have 3, 64 bits has 2. Two repeats show a spread but cannot say how often a result happens.
+\item \textbf{One kind of fact.} Every fact is a link from a creature to one value. Facts that
+  link creatures to each other were not tested.
+\item \textbf{A fixed length.} Every setting of a stage trained for the same number of steps. A
+  setting that was slower for a good reason is judged at the same time as the others.
+\item \textbf{Chance in the exam.} Questions about new combinations with 16 creatures rest on
+  only \N{qnew.count.c16} questions. The score is coarse there.
+\item \textbf{Two places.} Part of the 16 and 32-bit stages ran on your computer and the rest on
+  Modal. The same programs ran in both places. I did not check whether a run gives the same digits in
+  both.
+\end{itemize}
+
+\textbf{What this does not show.}
+\begin{itemize}
+\item It does not show \emph{why} the score stayed at 100 at 8 bits. The extra storage of each new
+  word is one explanation. It was not tested.
+\item It does not show that a model of fixed size can hold any number of words. The frozen-table
+  test, where a new word brings no storage of its own, is ready and \textbf{has not been run}.
+\item It does not tell ``cannot hold'' from ``not learned yet'' for any setting whose score was
+  still rising when training stopped, because the plan's longer control run (four times as long, for
+  each setting that fails) was not done.
+\item It does not say what happens with more than 64 bits, with other model designs, or in real
+  language, where the meaning of a word depends on other words.
+\end{itemize}
+
+\section{Everything done differently from the plan}\label{sec:extras}
+
+\begin{enumerate}[itemsep=1.5pt]
+\item \textbf{The 64-bit stage was cut} from the plan's full grid with three repeats (120 runs) to
+  \N{expected.bits64} runs: 16, 256 and 1,024 creatures, body widths 8, 32 and 128, both kinds of
+  use, 2 repeats. This was to stay inside your \$30 of cloud credit.
+\item \textbf{Part of the 16 and 32-bit stages ran on your computer,} for the same reason:
+  \N{local.bits16} runs of the 16-bit stage and \N{local.bits32} of the 32-bit stage (repeat 2, for
+  some body widths), and the practice runs of stage \texttt{pilot2}
+  (\N{expected.pilot2} runs). The rest ran on Modal.
+\item \textbf{A value word was replaced.} \s{mice} was also a creature name, so the value
+  \s{mice} was replaced by \s{gnats}.
+\item \textbf{Body widths up to 64 trained on 1 thread and width 128 on 2.} This changes the cost,
+  not the method.
+\item \textbf{The longer control run was not done.} The plan said one run four times as long for
+  each setting that fails. None was run.
+\item \textbf{Extra runs.} A small timing stage of 4 runs (\texttt{speed}) measured the cloud
+  machines. A tiny end-to-end test of 1 run (\texttt{smoke}) checked the programs.
+\item \textbf{Settings per stage.} The learning rate and the length were fixed from practice runs
+  separately for 8 bits, for 64 bits, and for 16 and 32 bits (section \ref{sec:practice}), each
+  fixed before the counted runs of that stage started.
+\item \textbf{Missing runs.} None. All \N{runs.main8}, \N{runs.bits16}, \N{runs.bits32} and
+  \N{runs.bits64} counted runs of the four stages were done and read (planned: \N{expected.main8},
+  \N{expected.bits16}, \N{expected.bits32} and \N{expected.bits64}). Some runs were interrupted and went on from their saved checkpoint, which the programs are built to do exactly (8 bits: \N{resumed.main8}; 16 bits: \N{resumed.bits16}; 32 bits: \N{resumed.bits32}; 64 bits: \N{resumed.bits64}). Each is counted once.
+\end{enumerate}
+
+\textbf{Where it ran, and what it cost.} Modal is a cloud service. Up to 100 small machines ran at
+once, with 1 or 2 processor cores and no graphics card. Together the counted runs took about
+\N{hours.main8} machine hours (8 bits), \N{hours.bits16} (16 bits), \N{hours.bits32} (32 bits) and
+\N{hours.bits64} (64 bits), counting runs on all machines. Modal's own cost meter read
+\$\N{cost.meter} at the end (\N{cost.meter.source}); it read \$\N{cost.log.first} when
+\N{cost.log.first.time} was first logged and \$\N{cost.log.last} at \N{cost.log.last.time}, the last
+logged reading.
+
+\section{What could come next}\label{sec:next}
+
+\begin{itemize}
+\item \textbf{The frozen-table test.} The same grid as 8 bits (stage \texttt{frozen8}, 200 runs),
+  with a table that is never trained, so that a new word brings no storage of its own. Before it
+  was run, the agent's expectation was: body width 8 holds 64 creatures but not 256, width 32
+  holds 256 but not 1,024, and width 128 holds 1,024. It is ready and has not been run.
+\end{itemize}
+
+The open questions in \texttt{research\_questions.md}, in a line each:
+\begin{itemize}
+\item \textbf{Q1:} Can a model say ``no'' about creatures it was never asked a ``no'' question about?
+\item \textbf{Q2:} What does capacity depend on: word count, total bits, or bits per number?
+  (Sections \ref{sec:bits} and \ref{sec:main8} give a first look.)
+\item \textbf{Q3:} Store or query: can a fact learned as a statement be used in a question?
+\item \textbf{Q4:} Does the vocabulary matter when words depend on each other?
+\item \textbf{Q5:} What changes when a word carries more than 8 bits? (Answered here for 16, 32 and 64
+  bits with the plain kind of sentence.)
+\item \textbf{Q6:} Does a dimension of its own for every word remove the effect of vocabulary size?
+\item \textbf{Q7:} Can rewards teach a model to answer questions where ordinary training did not?
+\item \textbf{Q8:} Does more variety in the text give better learning than repeating the same lines?
+\item \textbf{Q9:} How can training get out of a stall sooner?
+\item \textbf{Q10:} What is the smallest body width that works at all, and was width 8 on 256
+  animals at 32 bits too small or only slow?
+\item \textbf{Q11:} How does the model hold the facts inside? (Your own study.)
+\item \textbf{Q12:} Does it matter whether a line of training text holds one sentence or many?
+\end{itemize}

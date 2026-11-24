@@ -1,0 +1,58 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[letterpaper,hmargin=0.95in,vmargin=0.7in,footskip=22pt]{geometry}
+\linespread{1.0}
+\usepackage[T1]{fontenc}
+\usepackage{XCharter}
+\usepackage{fontspec}
+\setmonofont{FiraMono-Regular.otf}[Scale=0.82]
+\usepackage{microtype}
+\usepackage{booktabs,array,tabularx}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[font=small,labelfont=bf,skip=6pt]{caption}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage[most]{tcolorbox}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{ink}{HTML}{0B0B0B}
+\definecolor{soft}{HTML}{52514E}
+\definecolor{rule}{HTML}{C3C2B7}
+\definecolor{boxback}{HTML}{F4F3EE}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt minus 1pt}
+\setlist{itemsep=2pt,topsep=3pt,parsep=2pt,leftmargin=1.4em}
+\titleformat{\section}{\large\bfseries}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{12pt plus 2pt minus 2pt}{4pt}
+\titlespacing*{\subsection}{0pt}{9pt plus 2pt minus 1pt}{2pt}
+\renewcommand{\arraystretch}{1.15}
+\newcommand{\s}[1]{\texttt{#1}}          % a sentence or word of the toy language
+\newtcolorbox{keybox}{colback=boxback,colframe=rule,boxrule=0.5pt,arc=2pt,
+  left=8pt,right=8pt,top=6pt,bottom=6pt}
+
+\input{numbers.tex}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Does a bigger vocabulary need a bigger model?}\\[5pt]
+{\large Report on the experiments of the night of 21 to 22 November 2026}\\[3pt]
+{\small\color{soft} Prepared by Claude. Every result in this report comes from runs saved in the folder \s{air}.}
+\end{center}
+
+\input{sec_summary.tex}
+\input{sec_design.tex}
+\input{sec_changes.tex}
+\input{sec_result1.tex}
+\input{sec_results_zipf.tex}
+\input{sec_equal.tex}
+\input{sec_probe.tex}
+\input{sec_results_32.tex}
+\input{sec_four.tex}
+\input{sec_meaning.tex}
+\input{sec_extras.tex}
+
+\end{document}

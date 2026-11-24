@@ -1,0 +1,254 @@
+{
+ "name": "c1024_b64_equal_k8_s2",
+ "config": {
+  "creatures": 1024,
+  "kinds": 8,
+  "usage": "equal",
+  "body": 64,
+  "seed": 2,
+  "steps": 40000,
+  "lr": 0.01,
+  "threads": 1,
+  "table": "trained",
+  "columns": 32,
+  "layers": 2,
+  "heads": 2,
+  "batch": 512,
+  "warmup": 100,
+  "average": 0.998,
+  "name": "c1024_b64_equal_k8_s2"
+ },
+ "parameters": {
+  "trained": 53618,
+  "trained_without_table": 19218,
+  "table_rows_in_use": 1075,
+  "table_numbers": 34400,
+  "body_middle": 8384
+ },
+ "steps": 40000,
+ "sentences": 20480000,
+ "minutes": 43.11096699203334,
+ "steps_per_second": 15.463969221332077,
+ "final": {
+  "facts": 100.0,
+  "facts_by_kind": [
+   100.0,
+   100.0,
+   100.0,
+   100.0,
+   100.0,
+   100.0,
+   100.0,
+   100.0
+  ],
+  "questions_one": 100.0,
+  "questions_new": 99.9,
+  "questions_new_detail": {
+   "yes": 100.0,
+   "no_one": 99.73045822102425,
+   "no_more": 100.0,
+   "count": 2000
+  },
+  "questions_seen": 99.9,
+  "questions_seen_detail": {
+   "yes": 100.0,
+   "no_one": 99.72375690607734,
+   "no_more": 100.0,
+   "count": 2000
+  },
+  "not_known": 100.0,
+  "loss": 1.0612086806545866
+ },
+ "curve": [
+  {
+   "step": 100,
+   "sentences": 51200,
+   "facts": 25.048828125,
+   "questions_one": 0.0,
+   "questions_new": 0.0,
+   "questions_seen": 0.0,
+   "not_known": 25.0,
+   "loss": 3.199095194308271
+  },
+  {
+   "step": 141,
+   "sentences": 72192,
+   "facts": 25.146484375,
+   "questions_one": 0.0,
+   "questions_new": 0.0,
+   "questions_seen": 0.0,
+   "not_known": 24.8046875,
+   "loss": 1.5252823892164185
+  },
+  {
+   "step": 200,
+   "sentences": 102400,
+   "facts": 25.42724609375,
+   "questions_one": 0.048828125,
+   "questions_new": 0.0,
+   "questions_seen": 0.0,
+   "not_known": 24.853515625,
+   "loss": 1.509684868969711
+  },
+  {
+   "step": 283,
+   "sentences": 144896,
+   "facts": 26.01318359375,
+   "questions_one": 0.0,
+   "questions_new": 0.20000000000000284,
+   "questions_seen": 0.4000000000000057,
+   "not_known": 24.59716796875,
+   "loss": 1.5034852636226899
+  },
+  {
+   "step": 400,
+   "sentences": 204800,
+   "facts": 26.07421875,
+   "questions_one": 0.0,
+   "questions_new": 0.0,
+   "questions_seen": 0.0,
+   "not_known": 24.3408203125,
+   "loss": 1.4960979103354466
+  },
+  {
+   "step": 566,
+   "sentences": 289792,
+   "facts": 27.83203125,
+   "questions_one": 0.0,
+   "questions_new": 0.0,
+   "questions_seen": 0.0,
+   "not_known": 23.0224609375,
+   "loss": 1.5002984406428028
+  },
+  {
+   "step": 800,
+   "sentences": 409600,
+   "facts": 36.5478515625,
+   "questions_one": 0.0,
+   "questions_new": 2.1999999999999886,
+   "questions_seen": 3.0999999999999943,
+   "not_known": 19.44580078125,
+   "loss": 1.4841577237517332
+  },
+  {
+   "step": 1131,
+   "sentences": 579072,
+   "facts": 51.28173828125,
+   "questions_one": 0.1912434895833428,
+   "questions_new": 0.8000000000000114,
+   "questions_seen": 5.0,
+   "not_known": 23.10791015625,
+   "loss": 1.4496131129041092
+  },
+  {
+   "step": 1600,
+   "sentences": 819200,
+   "facts": 67.66357421875,
+   "questions_one": 9.090169270833343,
+   "questions_new": 8.599999999999994,
+   "questions_seen": 13.5,
+   "not_known": 43.05419921875,
+   "loss": 1.399413665302225
+  },
+  {
+   "step": 2263,
+   "sentences": 1158656,
+   "facts": 85.75439453125,
+   "questions_one": 58.84195963541666,
+   "questions_new": 52.5,
+   "questions_seen": 50.19999999999999,
+   "not_known": 61.46240234375,
+   "loss": 1.333596591203951
+  },
+  {
+   "step": 3200,
+   "sentences": 1638400,
+   "facts": 96.2158203125,
+   "questions_one": 89.54264322916666,
+   "questions_new": 78.6,
+   "questions_seen": 76.9,
+   "not_known": 85.51025390625,
+   "loss": 1.261760505372906
+  },
+  {
+   "step": 4525,
+   "sentences": 2316800,
+   "facts": 99.4873046875,
+   "questions_one": 98.64501953125,
+   "questions_new": 88.10000000000002,
+   "questions_seen": 85.60000000000002,
+   "not_known": 95.25146484375,
+   "loss": 1.2167180612815067
+  },
+  {
+   "step": 6400,
+   "sentences": 3276800,
+   "facts": 99.84130859375,
+   "questions_one": 99.66227213541666,
+   "questions_new": 92.6,
+   "questions_seen": 90.80000000000001,
+   "not_known": 98.93798828125,
+   "loss": 1.194693351383732
+  },
+  {
+   "step": 9051,
+   "sentences": 4634112,
+   "facts": 99.90234375,
+   "questions_one": 99.84944661458334,
+   "questions_new": 94.69999999999999,
+   "questions_seen": 95.19999999999999,
+   "not_known": 99.7802734375,
+   "loss": 1.1823882808897592
+  },
+  {
+   "step": 12800,
+   "sentences": 6553600,
+   "facts": 99.9755859375,
+   "questions_one": 99.951171875,
+   "questions_new": 96.89999999999998,
+   "questions_seen": 96.6,
+   "not_known": 99.93896484375,
+   "loss": 1.17216370961935
+  },
+  {
+   "step": 18102,
+   "sentences": 9268224,
+   "facts": 99.9755859375,
+   "questions_one": 99.9755859375,
+   "questions_new": 98.1,
+   "questions_seen": 98.30000000000001,
+   "not_known": 99.96337890625,
+   "loss": 1.1488720069370981
+  },
+  {
+   "step": 25600,
+   "sentences": 13107200,
+   "facts": 100.0,
+   "questions_one": 100.0,
+   "questions_new": 99.4,
+   "questions_seen": 99.69999999999999,
+   "not_known": 100.0,
+   "loss": 1.095736557385509
+  },
+  {
+   "step": 36204,
+   "sentences": 18536448,
+   "facts": 100.0,
+   "questions_one": 100.0,
+   "questions_new": 99.6,
+   "questions_seen": 99.30000000000001,
+   "not_known": 100.0,
+   "loss": 1.0665754253083932
+  },
+  {
+   "step": 40000,
+   "sentences": 20480000,
+   "facts": 100.0,
+   "questions_one": 100.0,
+   "questions_new": 99.9,
+   "questions_seen": 99.9,
+   "not_known": 100.0,
+   "loss": 1.0612086806545866
+  }
+ ]
+}

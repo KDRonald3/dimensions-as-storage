@@ -40,7 +40,56 @@ are represented in, not on its parameter count. At equal parameter count, the mo
 dimensions knew more facts in every comparison that was not already at 100. Each coordinate of a
 word's vector stores about 3 bits of facts; an extra MLP weight stores about 0.5.</p>
 
-<h2>The experiment in brief</h2>
+<p><b>In brief.</b> Small transformers (2 layers) are trained on made-up languages whose only
+content is random facts about up to 1,024 creatures, so each language is a known number of bits
+to store. Two sizes are varied: the dimensions of the word vectors (8 to 64) and the width of the
+MLP (4 to 128 neurons). The score is the share of facts recalled, out of 100; 25 is guessing.
+The <a href="#setup">Setup</a> tab explains the language, the information and the model.</p>
+
+<h2>1. The dimensions set the limit; the MLP barely moves it</h2>
+<div class="wrap">
+<table>
+  <tr><th></th><th>8 bits</th><th>16 bits</th><th>32 bits</th><th>64 bits</th><th>128 bits</th></tr>
+  <tr><th>8 dims</th><td style="background:#fff">100</td><td style="background:#fde4cf">93</td><td style="background:#e8763a" class="w">65</td><td style="background:#b23b0b" class="w">52</td><td style="background:#8c2d04" class="w">42</td></tr>
+  <tr><th>16 dims</th><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fdf2e9">96</td><td style="background:#f8a56b">77</td><td style="background:#d9480f" class="w">59</td></tr>
+  <tr><th>32 dims</th><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fbc9a3">87</td></tr>
+  <tr><th>64 dims</th><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fff">100</td></tr>
+</table>
+</div>
+<p class="cap">Facts known (out of 100) by dimensions of the word vectors and bits of facts per
+creature; middle of 3 seeds, MLP of 128 neurons. Where dimensions and bits double together, the
+score changes far less than along a row (e.g. 93, 96, 100, 100). By contrast, at 8 dimensions and 128 bits,
+widening the MLP from 4 to 128 to 457 neurons gave 39, 42, 42.</p>
+
+<h2>2. At the same parameter count, more dimensions win</h2>
+<img src="pairs.png" alt="Eight pairs of models with equal parameter counts; in each, the model with twice the dimensions knows more facts">
+<p class="cap">Each row is one parameter count and two models that both have it: one with half
+the dimensions and a very wide MLP (316 to 620 neurons), one with twice the dimensions and an MLP
+of 4 neurons. Comparing each model's best of three seeds, the higher-dimensional model knew more in all 8
+pairs that were not both at 100: by 6 to 20 points in seven of them, and by under 1 point in the
+eighth (99.8 against 100). The middle seeds give the same picture (4 to 23 points, and 0.6). In 6
+of the 8, every seed scored below every seed of the higher-dimensional model. The other 7 pairs
+tested (lighter loads) both reached 100.</p>
+
+<h2>3. A coordinate stores about 3 bits; an MLP weight about 0.5</h2>
+<img src="capacity.png" alt="Bits stored per coordinate of a word's vector (about 3) against per extra MLP weight (about 0.5)">
+<p class="cap">Estimated on the 128-bit language, counting each fact as either known or guessed.
+The per-coordinate figure is nearly the same at every dimension. For comparison, Morris et al.
+(2025) measured about 3.6 bits per parameter in GPT-style models.</p>
+
+<h2>Next</h2>
+<ul>
+  <li>Is it the trained coordinates (storage) or the room between words (geometry)? Test: a
+  frozen random 64-dimensional word table, with the parameter count matched.</li>
+  <li>Is it the words' space or the model's width? Test: 8-dimensional words projected into a
+  64-wide model.</li>
+</ul>
+<p class="cap">Limits: small models, synthetic data, one learning rate, training capped at
+640,000 steps (the size-matched models were still improving slowly at the cap).</p>
+</section>
+
+<section id="setup">
+<h2>The language, the information and the model</h2>
 
 <p><b>The "language".</b> A made-up vocabulary of up to 1,024 creatures (foxes, crows, ...). Each
 creature is given a fixed list of facts: its colour, its food, where it lives, and so on. Each
@@ -112,59 +161,9 @@ model must rank the true answer first among the four. 100 means every fact of ev
 is guessing. In all 2,880 models were trained (960 combinations of the settings above, 3 random
 seeds each), plus 45 size-matched models.</p>
 
-<h2>1. The dimensions set the limit; the MLP barely moves it</h2>
-<div class="wrap">
-<table>
-  <tr><th></th><th>8 bits</th><th>16 bits</th><th>32 bits</th><th>64 bits</th><th>128 bits</th></tr>
-  <tr><th>8 dims</th><td style="background:#fff">100</td><td style="background:#fde4cf">93</td><td style="background:#e8763a" class="w">65</td><td style="background:#b23b0b" class="w">52</td><td style="background:#8c2d04" class="w">42</td></tr>
-  <tr><th>16 dims</th><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fdf2e9">96</td><td style="background:#f8a56b">77</td><td style="background:#d9480f" class="w">59</td></tr>
-  <tr><th>32 dims</th><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fbc9a3">87</td></tr>
-  <tr><th>64 dims</th><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fff">100</td></tr>
-</table>
-</div>
-<p class="cap">Facts known (out of 100) by dimensions of the word vectors and bits of facts per
-creature; middle of 3 seeds, MLP of 128 neurons. Where dimensions and bits double together, the
-score changes far less than along a row (e.g. 93, 96, 100, 100). By contrast, at 8 dimensions and 128 bits,
-widening the MLP from 4 to 128 to 457 neurons gave 39, 42, 42.</p>
-
-<h2>2. At the same parameter count, more dimensions win</h2>
-<img src="pairs.png" alt="Eight pairs of models with equal parameter counts; in each, the model with twice the dimensions knows more facts">
-<p class="cap">Each row is one parameter count and two models that both have it: one with half
-the dimensions and a very wide MLP (316 to 620 neurons), one with twice the dimensions and an MLP
-of 4 neurons. Comparing each model's best of three seeds, the higher-dimensional model knew more in all 8
-pairs that were not both at 100: by 6 to 20 points in seven of them, and by under 1 point in the
-eighth (99.8 against 100). The middle seeds give the same picture (4 to 23 points, and 0.6). In 6
-of the 8, every seed scored below every seed of the higher-dimensional model. The other 7 pairs
-tested (lighter loads) both reached 100.</p>
-
-<h2>3. A coordinate stores about 3 bits; an MLP weight about 0.5</h2>
-<img src="capacity.png" alt="Bits stored per coordinate of a word's vector (about 3) against per extra MLP weight (about 0.5)">
-<p class="cap">Estimated on the 128-bit language, counting each fact as either known or guessed.
-The per-coordinate figure is nearly the same at every dimension. For comparison, Morris et al.
-(2025) measured about 3.6 bits per parameter in GPT-style models.</p>
-
-<h2>Next</h2>
-<ul>
-  <li>Is it the trained coordinates (storage) or the room between words (geometry)? Test: a
-  frozen random 64-dimensional word table, with the parameter count matched.</li>
-  <li>Is it the words' space or the model's width? Test: 8-dimensional words projected into a
-  64-wide model.</li>
-</ul>
-<p class="cap">Limits: small models, synthetic data, one learning rate, training capped at
-640,000 steps (the size-matched models were still improving slowly at the cap).</p>
-</section>
-
-<section id="setup">
 <p class="terms">Words used in the figures below: <b>table columns</b> are the dimensions of a
 word's vector (the embedding size, which is also the width of the residual stream);
 <b>body width</b> is the number of neurons in each MLP; <b>trained numbers</b> are parameters.</p>
-
-<h2>The language and the test</h2>
-<p>Each made-up creature has a fixed set of facts, and each fact is one of four possible answers,
-so it is worth 2 bits. A model is never shown the facts directly. It only reads sentences about
-one to four creatures: statements (<i>foxes and crows are black .</i>), "not" statements
-(<i>foxes do not eat seeds .</i>) and questions with their answer (<i>are foxes and bears black ?
-no</i>). After training it takes a fixed test of four parts. Facts known is the main score.</p>
 
 <h2>The model</h2>
 <p>A transformer with 2 layers and 2 attention heads that reads a sentence word by word and

@@ -1,0 +1,2060 @@
+{
+ "round32": [
+  {
+   "animals": 16,
+   "width": 8,
+   "repeat": 1,
+   "called": "first night",
+   "name": "a16_w8_equal_x4_s0",
+   "state": "solved",
+   "joined_at": null,
+   "sets": 64,
+   "facts_known": 100.0,
+   "questions": 0.0,
+   "curve": [
+    [
+     1,
+     0.0
+    ],
+    [
+     2,
+     0.0
+    ],
+    [
+     3,
+     0.0
+    ],
+    [
+     4,
+     0.0
+    ],
+    [
+     6,
+     6.2
+    ],
+    [
+     8,
+     6.2
+    ],
+    [
+     11,
+     10.4
+    ],
+    [
+     16,
+     18.8
+    ],
+    [
+     23,
+     40.1
+    ],
+    [
+     32,
+     96.9
+    ],
+    [
+     45,
+     100.0
+    ],
+    [
+     64,
+     100.0
+    ]
+   ]
+  },
+  {
+   "animals": 64,
+   "width": 8,
+   "repeat": 1,
+   "called": "new",
+   "name": "a64_w8_equal_x4_s0_long",
+   "state": "training",
+   "joined_at": null,
+   "sets": 91,
+   "facts_known": 76.8,
+   "questions": 0.0,
+   "curve": [
+    [
+     1,
+     0.1
+    ],
+    [
+     2,
+     0.0
+    ],
+    [
+     3,
+     0.0
+    ],
+    [
+     4,
+     0.0
+    ],
+    [
+     6,
+     0.0
+    ],
+    [
+     8,
+     0.0
+    ],
+    [
+     11,
+     1.4
+    ],
+    [
+     16,
+     13.5
+    ],
+    [
+     23,
+     21.0
+    ],
+    [
+     32,
+     31.4
+    ],
+    [
+     45,
+     35.7
+    ],
+    [
+     64,
+     57.3
+    ],
+    [
+     91,
+     76.8
+    ]
+   ]
+  },
+  {
+   "animals": 16,
+   "width": 8,
+   "repeat": 2,
+   "called": "first night",
+   "name": "a16_w8_equal_x4_s1",
+   "state": "solved",
+   "joined_at": null,
+   "sets": 45,
+   "facts_known": 100.0,
+   "questions": 9.9,
+   "curve": [
+    [
+     1,
+     0.0
+    ],
+    [
+     2,
+     1.0
+    ],
+    [
+     3,
+     0.0
+    ],
+    [
+     4,
+     0.0
+    ],
+    [
+     6,
+     2.6
+    ],
+    [
+     8,
+     15.6
+    ],
+    [
+     11,
+     17.7
+    ],
+    [
+     16,
+     25.5
+    ],
+    [
+     23,
+     49.0
+    ],
+    [
+     32,
+     97.9
+    ],
+    [
+     45,
+     100.0
+    ]
+   ]
+  },
+  {
+   "animals": 64,
+   "width": 8,
+   "repeat": 2,
+   "called": "new",
+   "name": "a64_w8_equal_x4_s1_long",
+   "state": "training",
+   "joined_at": null,
+   "sets": 23,
+   "facts_known": 11.1,
+   "questions": 0.1,
+   "curve": [
+    [
+     1,
+     0.0
+    ],
+    [
+     2,
+     0.0
+    ],
+    [
+     3,
+     0.0
+    ],
+    [
+     4,
+     0.3
+    ],
+    [
+     6,
+     0.0
+    ],
+    [
+     8,
+     0.3
+    ],
+    [
+     11,
+     0.8
+    ],
+    [
+     16,
+     5.2
+    ],
+    [
+     23,
+     11.1
+    ]
+   ]
+  },
+  {
+   "animals": 16,
+   "width": 16,
+   "repeat": 1,
+   "called": "first night",
+   "name": "a16_w16_equal_x4_s0",
+   "state": "solved",
+   "joined_at": null,
+   "sets": 16,
+   "facts_known": 100.0,
+   "questions": 0.78,
+   "curve": [
+    [
+     1,
+     0.0
+    ],
+    [
+     2,
+     0.0
+    ],
+    [
+     3,
+     7.8
+    ],
+    [
+     4,
+     8.3
+    ],
+    [
+     6,
+     28.6
+    ],
+    [
+     8,
+     51.6
+    ],
+    [
+     11,
+     98.4
+    ],
+    [
+     16,
+     100.0
+    ]
+   ]
+  },
+  {
+   "animals": 64,
+   "width": 16,
+   "repeat": 1,
+   "called": "new",
+   "name": "a64_w16_equal_x4_s0_long",
+   "state": "solved",
+   "joined_at": null,
+   "sets": 64,
+   "facts_known": 100.0,
+   "questions": 0.0,
+   "curve": [
+    [
+     1,
+     0.1
+    ],
+    [
+     2,
+     0.0
+    ],
+    [
+     3,
+     0.0
+    ],
+    [
+     4,
+     1.8
+    ],
+    [
+     6,
+     0.9
+    ],
+    [
+     8,
+     1.0
+    ],
+    [
+     11,
+     13.4
+    ],
+    [
+     16,
+     14.7
+    ],
+    [
+     23,
+     30.7
+    ],
+    [
+     32,
+     56.8
+    ],
+    [
+     45,
+     100.0
+    ],
+    [
+     64,
+     100.0
+    ]
+   ]
+  },
+  {
+   "animals": 16,
+   "width": 16,
+   "repeat": 2,
+   "called": "first night",
+   "name": "a16_w16_equal_x4_s1",
+   "state": "solved",
+   "joined_at": null,
+   "sets": 16,
+   "facts_known": 100.0,
+   "questions": 80.21,
+   "curve": [
+    [
+     1,
+     0.0
+    ],
+    [
+     2,
+     2.1
+    ],
+    [
+     3,
+     9.9
+    ],
+    [
+     4,
+     22.9
+    ],
+    [
+     6,
+     40.6
+    ],
+    [
+     8,
+     72.4
+    ],
+    [
+     11,
+     100.0
+    ],
+    [
+     16,
+     100.0
+    ]
+   ]
+  },
+  {
+   "animals": 64,
+   "width": 16,
+   "repeat": 2,
+   "called": "new",
+   "name": "a64_w16_equal_x4_s1_long",
+   "state": "training",
+   "joined_at": null,
+   "sets": 23,
+   "facts_known": 37.6,
+   "questions": 0.0,
+   "curve": [
+    [
+     1,
+     0.0
+    ],
+    [
+     2,
+     0.8
+    ],
+    [
+     3,
+     1.4
+    ],
+    [
+     4,
+     0.0
+    ],
+    [
+     6,
+     9.2
+    ],
+    [
+     8,
+     13.7
+    ],
+    [
+     11,
+     19.0
+    ],
+    [
+     16,
+     28.0
+    ],
+    [
+     23,
+     37.6
+    ]
+   ]
+  },
+  {
+   "animals": 16,
+   "width": 32,
+   "repeat": 1,
+   "called": "first night",
+   "name": "a16_w32_equal_x4_s0",
+   "state": "solved",
+   "joined_at": null,
+   "sets": 16,
+   "facts_known": 100.0,
+   "questions": 0.0,
+   "curve": [
+    [
+     1,
+     0.0
+    ],
+    [
+     2,
+     3.1
+    ],
+    [
+     3,
+     17.7
+    ],
+    [
+     4,
+     21.9
+    ],
+    [
+     6,
+     28.6
+    ],
+    [
+     8,
+     42.7
+    ],
+    [
+     11,
+     100.0
+    ],
+    [
+     16,
+     100.0
+    ]
+   ]
+  },
+  {
+   "animals": 64,
+   "width": 32,
+   "repeat": 1,
+   "called": "new",
+   "name": "a64_w32_equal_x4_s0_long",
+   "state": "solved",
+   "joined_at": null,
+   "sets": 32,
+   "facts_known": 100.0,
+   "questions": 0.0,
+   "curve": [
+    [
+     1,
+     0.7
+    ],
+    [
+     2,
+     3.3
+    ],
+    [
+     3,
+     0.4
+    ],
+    [
+     4,
+     7.4
+    ],
+    [
+     6,
+     13.8
+    ],
+    [
+     8,
+     28.5
+    ],
+    [
+     11,
+     36.3
+    ],
+    [
+     16,
+     85.0
+    ],
+    [
+     23,
+     100.0
+    ],
+    [
+     32,
+     100.0
+    ]
+   ]
+  },
+  {
+   "animals": 16,
+   "width": 32,
+   "repeat": 2,
+   "called": "first night",
+   "name": "a16_w32_equal_x4_s1",
+   "state": "solved",
+   "joined_at": null,
+   "sets": 16,
+   "facts_known": 100.0,
+   "questions": 43.75,
+   "curve": [
+    [
+     1,
+     0.5
+    ],
+    [
+     2,
+     5.7
+    ],
+    [
+     3,
+     21.9
+    ],
+    [
+     4,
+     28.6
+    ],
+    [
+     6,
+     34.9
+    ],
+    [
+     8,
+     66.1
+    ],
+    [
+     11,
+     100.0
+    ],
+    [
+     16,
+     100.0
+    ]
+   ]
+  },
+  {
+   "animals": 256,
+   "width": 8,
+   "repeat": 1,
+   "called": "first run, continued",
+   "name": "a256_w8_equal_x4_s0",
+   "state": "not finished",
+   "joined_at": 445,
+   "sets": 858,
+   "facts_known": 61.26,
+   "questions": 0.0,
+   "curve": [
+    [
+     1,
+     0.0
+    ],
+    [
+     2,
+     0.0
+    ],
+    [
+     3,
+     0.0
+    ],
+    [
+     4,
+     0.8
+    ],
+    [
+     6,
+     0.3
+    ],
+    [
+     8,
+     0.0
+    ],
+    [
+     11,
+     1.6
+    ],
+    [
+     16,
+     4.4
+    ],
+    [
+     23,
+     10.0
+    ],
+    [
+     32,
+     14.3
+    ],
+    [
+     45,
+     21.6
+    ],
+    [
+     64,
+     27.6
+    ],
+    [
+     91,
+     30.8
+    ],
+    [
+     128,
+     37.8
+    ],
+    [
+     181,
+     48.3
+    ],
+    [
+     256,
+     54.7
+    ],
+    [
+     362,
+     50.1
+    ],
+    [
+     445,
+     59.2
+    ],
+    [
+     461,
+     56.0
+    ],
+    [
+     477,
+     55.4
+    ],
+    [
+     509,
+     59.0
+    ],
+    [
+     573,
+     61.5
+    ],
+    [
+     701,
+     64.3
+    ],
+    [
+     858,
+     61.3
+    ]
+   ]
+  },
+  {
+   "animals": 256,
+   "width": 8,
+   "repeat": 1,
+   "called": "run again, continued",
+   "name": "a256_w8_equal_x4_s0_long",
+   "state": "not finished",
+   "joined_at": 776,
+   "sets": 1877,
+   "facts_known": 26.43,
+   "questions": 0.0,
+   "curve": [
+    [
+     1,
+     0.0
+    ],
+    [
+     2,
+     0.1
+    ],
+    [
+     3,
+     0.0
+    ],
+    [
+     4,
+     0.4
+    ],
+    [
+     6,
+     0.1
+    ],
+    [
+     8,
+     0.0
+    ],
+    [
+     11,
+     0.4
+    ],
+    [
+     16,
+     3.0
+    ],
+    [
+     23,
+     7.6
+    ],
+    [
+     32,
+     20.2
+    ],
+    [
+     45,
+     26.4
+    ],
+    [
+     64,
+     29.7
+    ],
+    [
+     91,
+     47.9
+    ],
+    [
+     128,
+     54.4
+    ],
+    [
+     181,
+     57.1
+    ],
+    [
+     256,
+     58.8
+    ],
+    [
+     362,
+     53.7
+    ],
+    [
+     512,
+     59.8
+    ],
+    [
+     724,
+     55.9
+    ],
+    [
+     776,
+     44.1
+    ],
+    [
+     792,
+     61.9
+    ],
+    [
+     808,
+     50.8
+    ],
+    [
+     840,
+     63.6
+    ],
+    [
+     904,
+     51.0
+    ],
+    [
+     1032,
+     56.0
+    ],
+    [
+     1288,
+     59.4
+    ],
+    [
+     1800,
+     0.0
+    ],
+    [
+     1877,
+     26.4
+    ]
+   ]
+  },
+  {
+   "animals": 256,
+   "width": 8,
+   "repeat": 2,
+   "called": "continued",
+   "name": "a256_w8_equal_x4_s1_long",
+   "state": "not finished",
+   "joined_at": 391,
+   "sets": 1650,
+   "facts_known": 36.59,
+   "questions": 0.0,
+   "curve": [
+    [
+     1,
+     0.0
+    ],
+    [
+     2,
+     0.0
+    ],
+    [
+     3,
+     0.0
+    ],
+    [
+     4,
+     0.0
+    ],
+    [
+     6,
+     0.0
+    ],
+    [
+     8,
+     0.1
+    ],
+    [
+     11,
+     0.0
+    ],
+    [
+     16,
+     0.4
+    ],
+    [
+     23,
+     0.0
+    ],
+    [
+     32,
+     0.0
+    ],
+    [
+     45,
+     6.6
+    ],
+    [
+     64,
+     21.1
+    ],
+    [
+     91,
+     31.0
+    ],
+    [
+     128,
+     32.8
+    ],
+    [
+     181,
+     34.0
+    ],
+    [
+     256,
+     34.2
+    ],
+    [
+     362,
+     34.7
+    ],
+    [
+     391,
+     34.8
+    ],
+    [
+     407,
+     34.4
+    ],
+    [
+     423,
+     34.9
+    ],
+    [
+     455,
+     35.0
+    ],
+    [
+     519,
+     35.0
+    ],
+    [
+     647,
+     35.6
+    ],
+    [
+     903,
+     35.5
+    ],
+    [
+     1415,
+     36.2
+    ],
+    [
+     1650,
+     36.6
+    ]
+   ]
+  },
+  {
+   "animals": 256,
+   "width": 16,
+   "repeat": 1,
+   "called": "first run, retraced to 512 sets",
+   "name": "a256_w16_equal_x4_s0_f512",
+   "state": "set length",
+   "joined_at": null,
+   "sets": 512,
+   "facts_known": 98.6,
+   "questions": 0.11,
+   "curve": [
+    [
+     1,
+     0.2
+    ],
+    [
+     2,
+     0.0
+    ],
+    [
+     3,
+     0.1
+    ],
+    [
+     4,
+     0.3
+    ],
+    [
+     6,
+     1.6
+    ],
+    [
+     8,
+     5.3
+    ],
+    [
+     11,
+     8.3
+    ],
+    [
+     16,
+     17.6
+    ],
+    [
+     23,
+     33.0
+    ],
+    [
+     32,
+     35.7
+    ],
+    [
+     45,
+     36.7
+    ],
+    [
+     64,
+     36.9
+    ],
+    [
+     91,
+     37.2
+    ],
+    [
+     128,
+     37.3
+    ],
+    [
+     181,
+     37.3
+    ],
+    [
+     256,
+     37.0
+    ],
+    [
+     362,
+     37.2
+    ],
+    [
+     512,
+     98.6
+    ]
+   ]
+  },
+  {
+   "animals": 256,
+   "width": 16,
+   "repeat": 2,
+   "called": "first night",
+   "name": "a256_w16_equal_x4_s1_long",
+   "state": "solved",
+   "joined_at": null,
+   "sets": 91,
+   "facts_known": 99.9,
+   "questions": 0.0,
+   "curve": [
+    [
+     1,
+     0.0
+    ],
+    [
+     2,
+     0.0
+    ],
+    [
+     3,
+     0.0
+    ],
+    [
+     4,
+     0.5
+    ],
+    [
+     6,
+     0.2
+    ],
+    [
+     8,
+     3.3
+    ],
+    [
+     11,
+     7.4
+    ],
+    [
+     16,
+     17.7
+    ],
+    [
+     23,
+     32.4
+    ],
+    [
+     32,
+     36.0
+    ],
+    [
+     45,
+     56.6
+    ],
+    [
+     64,
+     99.6
+    ],
+    [
+     91,
+     99.9
+    ]
+   ]
+  },
+  {
+   "animals": 256,
+   "width": 32,
+   "repeat": 1,
+   "called": "first run, ended as flat",
+   "name": "a256_w32_equal_x4_s0",
+   "state": "flat",
+   "joined_at": null,
+   "sets": 91,
+   "facts_known": 37.24,
+   "questions": 0.0,
+   "curve": [
+    [
+     1,
+     0.2
+    ],
+    [
+     2,
+     0.0
+    ],
+    [
+     3,
+     0.4
+    ],
+    [
+     4,
+     5.4
+    ],
+    [
+     6,
+     9.3
+    ],
+    [
+     8,
+     10.4
+    ],
+    [
+     11,
+     23.0
+    ],
+    [
+     16,
+     34.5
+    ],
+    [
+     23,
+     36.9
+    ],
+    [
+     32,
+     37.2
+    ],
+    [
+     45,
+     37.1
+    ],
+    [
+     64,
+     37.2
+    ],
+    [
+     91,
+     37.2
+    ]
+   ]
+  },
+  {
+   "animals": 256,
+   "width": 32,
+   "repeat": 1,
+   "called": "run again",
+   "name": "a256_w32_equal_x4_s0_long",
+   "state": "solved",
+   "joined_at": null,
+   "sets": 64,
+   "facts_known": 100.0,
+   "questions": 0.0,
+   "curve": [
+    [
+     1,
+     0.0
+    ],
+    [
+     2,
+     0.0
+    ],
+    [
+     3,
+     0.0
+    ],
+    [
+     4,
+     0.9
+    ],
+    [
+     6,
+     5.7
+    ],
+    [
+     8,
+     5.8
+    ],
+    [
+     11,
+     19.2
+    ],
+    [
+     16,
+     30.0
+    ],
+    [
+     23,
+     34.7
+    ],
+    [
+     32,
+     70.5
+    ],
+    [
+     45,
+     100.0
+    ],
+    [
+     64,
+     100.0
+    ]
+   ]
+  },
+  {
+   "animals": 1024,
+   "width": 16,
+   "repeat": 1,
+   "called": "continued",
+   "name": "a1024_w16_equal_x4_s0_long",
+   "state": "solved",
+   "joined_at": 328,
+   "sets": 584,
+   "facts_known": 97.39,
+   "questions": 39.46,
+   "curve": [
+    [
+     1,
+     0.0
+    ],
+    [
+     2,
+     0.0
+    ],
+    [
+     3,
+     0.1
+    ],
+    [
+     4,
+     0.0
+    ],
+    [
+     6,
+     0.1
+    ],
+    [
+     8,
+     0.1
+    ],
+    [
+     11,
+     0.2
+    ],
+    [
+     16,
+     1.1
+    ],
+    [
+     23,
+     7.8
+    ],
+    [
+     32,
+     8.4
+    ],
+    [
+     45,
+     12.5
+    ],
+    [
+     64,
+     19.1
+    ],
+    [
+     91,
+     32.0
+    ],
+    [
+     128,
+     62.6
+    ],
+    [
+     181,
+     75.9
+    ],
+    [
+     256,
+     88.4
+    ],
+    [
+     328,
+     93.6
+    ],
+    [
+     344,
+     93.6
+    ],
+    [
+     360,
+     94.4
+    ],
+    [
+     392,
+     95.0
+    ],
+    [
+     456,
+     96.6
+    ],
+    [
+     584,
+     97.4
+    ]
+   ]
+  },
+  {
+   "animals": 1024,
+   "width": 32,
+   "repeat": 1,
+   "called": "continued",
+   "name": "a1024_w32_equal_x4_s0_long",
+   "state": "solved",
+   "joined_at": 436,
+   "sets": 459,
+   "facts_known": 99.38,
+   "questions": 0.0,
+   "curve": [
+    [
+     1,
+     0.0
+    ],
+    [
+     2,
+     0.0
+    ],
+    [
+     3,
+     0.0
+    ],
+    [
+     4,
+     0.4
+    ],
+    [
+     6,
+     3.1
+    ],
+    [
+     8,
+     1.8
+    ],
+    [
+     11,
+     5.5
+    ],
+    [
+     16,
+     12.3
+    ],
+    [
+     23,
+     14.9
+    ],
+    [
+     32,
+     29.9
+    ],
+    [
+     45,
+     36.6
+    ],
+    [
+     64,
+     66.4
+    ],
+    [
+     91,
+     81.9
+    ],
+    [
+     128,
+     82.3
+    ],
+    [
+     181,
+     82.4
+    ],
+    [
+     256,
+     82.6
+    ],
+    [
+     362,
+     88.8
+    ],
+    [
+     436,
+     89.2
+    ],
+    [
+     452,
+     97.8
+    ],
+    [
+     459,
+     99.4
+    ]
+   ]
+  },
+  {
+   "animals": 1024,
+   "width": 8,
+   "repeat": 1,
+   "called": "new",
+   "name": "a1024_w8_equal_x4_s0_long",
+   "state": "training",
+   "joined_at": null,
+   "sets": 512,
+   "facts_known": 32.2,
+   "questions": 0.0,
+   "curve": [
+    [
+     1,
+     0.0
+    ],
+    [
+     2,
+     0.0
+    ],
+    [
+     3,
+     0.0
+    ],
+    [
+     4,
+     0.2
+    ],
+    [
+     6,
+     0.0
+    ],
+    [
+     8,
+     0.0
+    ],
+    [
+     11,
+     0.0
+    ],
+    [
+     16,
+     0.1
+    ],
+    [
+     23,
+     1.1
+    ],
+    [
+     32,
+     9.9
+    ],
+    [
+     45,
+     16.4
+    ],
+    [
+     64,
+     25.9
+    ],
+    [
+     91,
+     28.5
+    ],
+    [
+     128,
+     30.2
+    ],
+    [
+     181,
+     30.8
+    ],
+    [
+     256,
+     30.4
+    ],
+    [
+     362,
+     32.0
+    ],
+    [
+     512,
+     32.2
+    ]
+   ]
+  }
+ ],
+ "kinds": {
+  "a256_w8_equal_x4_s0": {
+   "when_the_night_ended": [
+    0.5684,
+    0.8906,
+    0.7783,
+    0.5381
+   ],
+   "after_the_extra_training": [
+    0.752,
+    0.9473,
+    0.7832,
+    0.3555
+   ]
+  },
+  "a256_w8_equal_x4_s0_long": {
+   "when_the_night_ended": [
+    0.2451,
+    0.3398,
+    0.9258,
+    0.8115
+   ],
+   "after_the_extra_training": [
+    0.3623,
+    0.4873,
+    0.4795,
+    0.4639
+   ]
+  },
+  "a256_w8_equal_x4_s1_long": {
+   "when_the_night_ended": [
+    0.5283,
+    0.498,
+    0.4932,
+    0.5234
+   ],
+   "after_the_extra_training": [
+    0.5371,
+    0.5254,
+    0.5078,
+    0.5273
+   ]
+  }
+ },
+ "before_after": {
+  "equal_w8": {
+   "models": 12,
+   "answer_after": 3
+  },
+  "equal_w16": {
+   "models": 12,
+   "answer_after": 5
+  },
+  "equal_w32": {
+   "models": 12,
+   "answer_after": 9
+  },
+  "zipf_w8": {
+   "models": 12,
+   "answer_after": 3
+  },
+  "zipf_w16": {
+   "models": 12,
+   "answer_after": 12
+  },
+  "zipf_w32": {
+   "models": 12,
+   "answer_after": 12
+  }
+ },
+ "when": {
+  "a16_w8_equal_s0": {
+   "statements_at": 45,
+   "questions_at": 245,
+   "sets_read": 320
+  },
+  "a16_w8_equal_s1": {
+   "statements_at": 45,
+   "questions_at": null,
+   "sets_read": 347
+  },
+  "a16_w8_equal_s2": {
+   "statements_at": 45,
+   "questions_at": null,
+   "sets_read": 320
+  },
+  "a64_w8_equal_s0": {
+   "statements_at": 64,
+   "questions_at": null,
+   "sets_read": 347
+  },
+  "a64_w8_equal_s1": {
+   "statements_at": 128,
+   "questions_at": null,
+   "sets_read": 437
+  },
+  "a64_w8_equal_s2": {
+   "statements_at": 45,
+   "questions_at": null,
+   "sets_read": 320
+  },
+  "a256_w8_equal_s0": {
+   "statements_at": 181,
+   "questions_at": null,
+   "sets_read": 512
+  },
+  "a256_w8_equal_s1": {
+   "statements_at": 362,
+   "questions_at": null,
+   "sets_read": 768
+  },
+  "a256_w8_equal_s2": {
+   "statements_at": 181,
+   "questions_at": null,
+   "sets_read": 512
+  },
+  "a1024_w8_equal_s0": {
+   "statements_at": 181,
+   "questions_at": 301,
+   "sets_read": 384
+  },
+  "a1024_w8_equal_s1": {
+   "statements_at": 1448,
+   "questions_at": 1639,
+   "sets_read": 1767
+  },
+  "a1024_w8_equal_s2": {
+   "statements_at": 362,
+   "questions_at": null,
+   "sets_read": 768
+  },
+  "a16_w16_equal_s0": {
+   "statements_at": 23,
+   "questions_at": null,
+   "sets_read": 288
+  },
+  "a16_w16_equal_s1": {
+   "statements_at": 23,
+   "questions_at": 55,
+   "sets_read": 64
+  },
+  "a16_w16_equal_s2": {
+   "statements_at": 16,
+   "questions_at": 123,
+   "sets_read": 160
+  },
+  "a64_w16_equal_s0": {
+   "statements_at": 32,
+   "questions_at": null,
+   "sets_read": 320
+  },
+  "a64_w16_equal_s1": {
+   "statements_at": 23,
+   "questions_at": null,
+   "sets_read": 301
+  },
+  "a64_w16_equal_s2": {
+   "statements_at": 32,
+   "questions_at": null,
+   "sets_read": 301
+  },
+  "a256_w16_equal_s0": {
+   "statements_at": 45,
+   "questions_at": null,
+   "sets_read": 320
+  },
+  "a256_w16_equal_s1": {
+   "statements_at": 45,
+   "questions_at": null,
+   "sets_read": 320
+  },
+  "a256_w16_equal_s2": {
+   "statements_at": 64,
+   "questions_at": null,
+   "sets_read": 347
+  },
+  "a1024_w16_equal_s0": {
+   "statements_at": 91,
+   "questions_at": 362,
+   "sets_read": 437
+  },
+  "a1024_w16_equal_s1": {
+   "statements_at": 128,
+   "questions_at": 181,
+   "sets_read": 213
+  },
+  "a1024_w16_equal_s2": {
+   "statements_at": 91,
+   "questions_at": 128,
+   "sets_read": 130
+  },
+  "a16_w32_equal_s0": {
+   "statements_at": 16,
+   "questions_at": 23,
+   "sets_read": 25
+  },
+  "a16_w32_equal_s1": {
+   "statements_at": 11,
+   "questions_at": 32,
+   "sets_read": 39
+  },
+  "a16_w32_equal_s2": {
+   "statements_at": 16,
+   "questions_at": 31,
+   "sets_read": 34
+  },
+  "a64_w32_equal_s0": {
+   "statements_at": 23,
+   "questions_at": null,
+   "sets_read": 288
+  },
+  "a64_w32_equal_s1": {
+   "statements_at": 16,
+   "questions_at": 114,
+   "sets_read": 151
+  },
+  "a64_w32_equal_s2": {
+   "statements_at": 23,
+   "questions_at": 36,
+   "sets_read": 40
+  },
+  "a256_w32_equal_s0": {
+   "statements_at": 45,
+   "questions_at": 45,
+   "sets_read": 66
+  },
+  "a256_w32_equal_s1": {
+   "statements_at": 32,
+   "questions_at": null,
+   "sets_read": 320
+  },
+  "a256_w32_equal_s2": {
+   "statements_at": 45,
+   "questions_at": null,
+   "sets_read": 320
+  },
+  "a1024_w32_equal_s0": {
+   "statements_at": 91,
+   "questions_at": 128,
+   "sets_read": 130
+  },
+  "a1024_w32_equal_s1": {
+   "statements_at": 91,
+   "questions_at": 91,
+   "sets_read": 130
+  },
+  "a1024_w32_equal_s2": {
+   "statements_at": 64,
+   "questions_at": 64,
+   "sets_read": 93
+  },
+  "a16_w8_zipf_s0": {
+   "statements_at": 45,
+   "questions_at": 320,
+   "sets_read": 320
+  },
+  "a16_w8_zipf_s1": {
+   "statements_at": 64,
+   "questions_at": 219,
+   "sets_read": 347
+  },
+  "a16_w8_zipf_s2": {
+   "statements_at": 45,
+   "questions_at": 245,
+   "sets_read": 320
+  },
+  "a64_w8_zipf_s0": {
+   "statements_at": 91,
+   "questions_at": null,
+   "sets_read": 384
+  },
+  "a64_w8_zipf_s1": {
+   "statements_at": 64,
+   "questions_at": null,
+   "sets_read": 384
+  },
+  "a64_w8_zipf_s2": {
+   "statements_at": 128,
+   "questions_at": null,
+   "sets_read": 512
+  },
+  "a256_w8_zipf_s0": {
+   "statements_at": 91,
+   "questions_at": null,
+   "sets_read": 437
+  },
+  "a256_w8_zipf_s1": {
+   "statements_at": 64,
+   "questions_at": null,
+   "sets_read": 384
+  },
+  "a256_w8_zipf_s2": {
+   "statements_at": 91,
+   "questions_at": null,
+   "sets_read": 437
+  },
+  "a1024_w8_zipf_s0": {
+   "statements_at": 128,
+   "questions_at": null,
+   "sets_read": 437
+  },
+  "a1024_w8_zipf_s1": {
+   "statements_at": 91,
+   "questions_at": null,
+   "sets_read": 437
+  },
+  "a1024_w8_zipf_s2": {
+   "statements_at": 128,
+   "questions_at": null,
+   "sets_read": 512
+  },
+  "a16_w16_zipf_s0": {
+   "statements_at": 23,
+   "questions_at": 32,
+   "sets_read": 40
+  },
+  "a16_w16_zipf_s1": {
+   "statements_at": 16,
+   "questions_at": 26,
+   "sets_read": 39
+  },
+  "a16_w16_zipf_s2": {
+   "statements_at": 16,
+   "questions_at": 32,
+   "sets_read": 40
+  },
+  "a64_w16_zipf_s0": {
+   "statements_at": 32,
+   "questions_at": 77,
+   "sets_read": 109
+  },
+  "a64_w16_zipf_s1": {
+   "statements_at": 23,
+   "questions_at": 43,
+   "sets_read": 64
+  },
+  "a64_w16_zipf_s2": {
+   "statements_at": 23,
+   "questions_at": 53,
+   "sets_read": 68
+  },
+  "a256_w16_zipf_s0": {
+   "statements_at": 45,
+   "questions_at": 155,
+   "sets_read": 245
+  },
+  "a256_w16_zipf_s1": {
+   "statements_at": 32,
+   "questions_at": 136,
+   "sets_read": 173
+  },
+  "a256_w16_zipf_s2": {
+   "statements_at": 32,
+   "questions_at": 96,
+   "sets_read": 155
+  },
+  "a1024_w16_zipf_s0": {
+   "statements_at": 45,
+   "questions_at": 272,
+   "sets_read": 347
+  },
+  "a1024_w16_zipf_s1": {
+   "statements_at": 32,
+   "questions_at": 64,
+   "sets_read": 66
+  },
+  "a1024_w16_zipf_s2": {
+   "statements_at": 45,
+   "questions_at": 64,
+   "sets_read": 66
+  },
+  "a16_w32_zipf_s0": {
+   "statements_at": 16,
+   "questions_at": 27,
+   "sets_read": 39
+  },
+  "a16_w32_zipf_s1": {
+   "statements_at": 11,
+   "questions_at": 19,
+   "sets_read": 24
+  },
+  "a16_w32_zipf_s2": {
+   "statements_at": 11,
+   "questions_at": 16,
+   "sets_read": 24
+  },
+  "a64_w32_zipf_s0": {
+   "statements_at": 16,
+   "questions_at": 27,
+   "sets_read": 39
+  },
+  "a64_w32_zipf_s1": {
+   "statements_at": 11,
+   "questions_at": 24,
+   "sets_read": 32
+  },
+  "a64_w32_zipf_s2": {
+   "statements_at": 16,
+   "questions_at": 27,
+   "sets_read": 34
+  },
+  "a256_w32_zipf_s0": {
+   "statements_at": 23,
+   "questions_at": 48,
+   "sets_read": 55
+  },
+  "a256_w32_zipf_s1": {
+   "statements_at": 16,
+   "questions_at": 34,
+   "sets_read": 46
+  },
+  "a256_w32_zipf_s2": {
+   "statements_at": 16,
+   "questions_at": 23,
+   "sets_read": 25
+  },
+  "a1024_w32_zipf_s0": {
+   "statements_at": 23,
+   "questions_at": 68,
+   "sets_read": 90
+  },
+  "a1024_w32_zipf_s1": {
+   "statements_at": 23,
+   "questions_at": 45,
+   "sets_read": 47
+  },
+  "a1024_w32_zipf_s2": {
+   "statements_at": 32,
+   "questions_at": 56,
+   "sets_read": 68
+  }
+ },
+ "effort": {
+  "equal_w8_a16": [
+   64,
+   64,
+   91
+  ],
+  "equal_w8_a64": [
+   64,
+   91,
+   181
+  ],
+  "equal_w8_a256": [
+   256,
+   256,
+   512
+  ],
+  "equal_w8_a1024": [
+   256,
+   512,
+   1639
+  ],
+  "equal_w16_a16": [
+   32,
+   32,
+   32
+  ],
+  "equal_w16_a64": [
+   45,
+   45,
+   64
+  ],
+  "equal_w16_a256": [
+   64,
+   64,
+   91
+  ],
+  "equal_w16_a1024": [
+   128,
+   181,
+   181
+  ],
+  "equal_w32_a16": [
+   16,
+   23,
+   23
+  ],
+  "equal_w32_a64": [
+   23,
+   32,
+   32
+  ],
+  "equal_w32_a256": [
+   64,
+   64,
+   64
+  ],
+  "equal_w32_a1024": [
+   91,
+   128,
+   128
+  ],
+  "zipf_w8_a16": [
+   64,
+   64,
+   91
+  ],
+  "zipf_w8_a64": [
+   128,
+   128,
+   256
+  ],
+  "zipf_w8_a256": [
+   128,
+   181,
+   181
+  ],
+  "zipf_w8_a1024": [
+   181,
+   181,
+   256
+  ],
+  "zipf_w16_a16": [
+   23,
+   32,
+   32
+  ],
+  "zipf_w16_a64": [
+   32,
+   45,
+   45
+  ],
+  "zipf_w16_a256": [
+   45,
+   64,
+   64
+  ],
+  "zipf_w16_a1024": [
+   64,
+   64,
+   91
+  ],
+  "zipf_w32_a16": [
+   16,
+   16,
+   23
+  ],
+  "zipf_w32_a64": [
+   16,
+   23,
+   23
+  ],
+  "zipf_w32_a256": [
+   23,
+   23,
+   32
+  ],
+  "zipf_w32_a1024": [
+   45,
+   45,
+   45
+  ]
+ }
+}

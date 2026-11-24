@@ -1,0 +1,26 @@
+\section{Result 2: unequal use of the animals did no harm}
+\label{sec:zipf}
+
+You pointed out that in real language words are not used equally often, and that this is part
+of what a language is. So the first round was run again with unequal use: the most
+common animal is mentioned twice as often as the second, three times as often as the third,
+and so on down the list. The 16 original animals are the most common ones. With 1,024 animals
+they get 45\% of all mentions, and the rarest animal is mentioned 7.5 times less often than it
+would be with equal use. These are again 36 runs. To fit the night I cut the time limit from 30
+minutes to 5, roughly 270 sets. That turned out not to matter: every run was solved inside it,
+the slowest after 256 sets.
+
+\textbf{All 36 runs ended as solved.} The lowest score was 99.1. So the rule is again not met
+for any width, and for the same reason: no model ended up worse with more words.
+
+\textbf{The large languages were learned in fewer sets than with equal use.} On 1,024 animals
+width 32 needed 45 sets in all three repeats, where it had needed about 128 (table
+\ref{tab:effort1}). Width 8 needed 181, 181 and 256 sets, where it had needed 256, 512 and
+1,639. The rare
+animals were learned too. When width 32 was solved on 1,024 animals, each fact of the rarest
+animal had come up only about 90 times. With equal use, each fact had come up more than 1,300
+times before the same model was solved.
+
+I had expected the opposite, that rare words would hold a model back. My explanation, which
+these runs do not test: the common animals get a model past its early stand-still sooner, and
+after that it needs far fewer showings to add another animal.

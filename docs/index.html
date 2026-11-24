@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dimensions as storage: preliminary results</title>
+<style>
+  :root { --ink: #0b0b0b; --soft: #52514e; --line: #d9d8d2; --bg: #fcfcfb; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 17px/1.55 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+  main { max-width: 780px; margin: 0 auto; padding: 32px 16px 56px; }
+  h1 { font-size: 1.7em; line-height: 1.2; margin: 0 0 6px; }
+  h2 { font-size: 1.2em; margin: 40px 0 8px; }
+  .sub { color: var(--soft); margin: 0 0 24px; }
+  .key { border-left: 4px solid #1c5cab; padding: 4px 0 4px 14px; margin: 20px 0; }
+  img { width: 100%; height: auto; border: 1px solid var(--line); }
+  .cap { color: var(--soft); font-size: 0.9em; margin: 6px 0 0; }
+  .wrap { overflow-x: auto; }
+  table { border-collapse: collapse; margin: 8px 0 0; font-variant-numeric: tabular-nums; }
+  th, td { padding: 8px 12px; text-align: center; border: 2px solid var(--bg); }
+  th { font-weight: 600; font-size: 0.9em; color: var(--soft); }
+  td.w { color: #fff; }
+  ul { padding-left: 20px; }
+  nav { display: flex; gap: 8px; margin: 0 0 8px; border-bottom: 1px solid var(--line); }
+  nav a { padding: 8px 14px; color: var(--soft); text-decoration: none; border-bottom: 3px solid transparent; }
+  nav a.on { color: var(--ink); font-weight: 600; border-bottom-color: #1c5cab; }
+  .terms { background: #f1f0ec; padding: 10px 14px; font-size: 0.92em; }
+</style>
+</head>
+<body>
+<main>
+<h1>Small transformers store facts in the space their words live in</h1>
+<p class="sub">Preliminary results, November 2026</p>
+<nav><a href="#results" id="tab-results" class="on">Results</a><a href="#setup" id="tab-setup">Setup</a></nav>
+
+<section id="results">
+
+<p class="key">How much a model can remember depends mainly on the number of dimensions its words
+are represented in, not on its parameter count. At equal parameter count, the model with more
+dimensions knew more facts in every comparison that was not already at 100. Each coordinate of a
+word's vector stores about 3 bits of facts; an extra MLP weight stores about 0.5.</p>
+
+<p><b>In brief.</b> Small transformers (2 layers) are trained on made-up languages whose only
+content is random facts about up to 1,024 creatures, so each language is a known number of bits
+to store. Two sizes are varied: the dimensions of the word vectors (8 to 64) and the width of the
+MLP (4 to 128 neurons). The score is the share of facts recalled, out of 100; 25 is guessing.
+The <a href="#setup">Setup</a> tab explains the language, the information and the model.</p>
+
+<h2>1. The dimensions set the limit; the MLP barely moves it</h2>
+<div class="wrap">
+<table>
+  <tr><th></th><th>8 bits</th><th>16 bits</th><th>32 bits</th><th>64 bits</th><th>128 bits</th></tr>
+  <tr><th>8 dims</th><td style="background:#fff">100</td><td style="background:#fde4cf">93</td><td style="background:#e8763a" class="w">65</td><td style="background:#b23b0b" class="w">52</td><td style="background:#8c2d04" class="w">42</td></tr>
+  <tr><th>16 dims</th><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fdf2e9">96</td><td style="background:#f8a56b">77</td><td style="background:#d9480f" class="w">59</td></tr>
+  <tr><th>32 dims</th><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fbc9a3">87</td></tr>
+  <tr><th>64 dims</th><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fff">100</td></tr>
+</table>
+</div>
+<p class="cap">Facts known (out of 100) by dimensions of the word vectors and bits of facts per
+creature; middle of 3 seeds, MLP of 128 neurons. Where dimensions and bits double together, the
+score changes far less than along a row (e.g. 93, 96, 100, 100). By contrast, at 8 dimensions and 128 bits,
+widening the MLP from 4 to 128 to 457 neurons gave 39, 42, 42.</p>
+
+<h2>2. At the same parameter count, more dimensions win</h2>
+<img src="pairs.png" alt="Eight pairs of models with equal parameter counts; in each, the model with twice the dimensions knows more facts">
+<p class="cap">Each row is one parameter count and two models that both have it: one with half
+the dimensions and a very wide MLP (316 to 620 neurons), one with twice the dimensions and an MLP
+of 4 neurons. Comparing each model's best of three seeds, the higher-dimensional model knew more in all 8
+pairs that were not both at 100: by 6 to 20 points in seven of them, and by under 1 point in the
+eighth (99.8 against 100). The middle seeds give the same picture (4 to 23 points, and 0.6). In 6
+of the 8, every seed scored below every seed of the higher-dimensional model. The other 7 pairs
+tested (lighter loads) both reached 100.</p>
+
+<h2>3. A coordinate stores about 3 bits; an MLP weight about 0.5</h2>
+<img src="capacity.png" alt="Bits stored per coordinate of a word's vector (about 3) against per extra MLP weight (about 0.5)">
+<p class="cap">Estimated on the 128-bit language, counting each fact as either known or guessed.
+The per-coordinate figure is nearly the same at every dimension. For comparison, Morris et al.
+(2025) measured about 3.6 bits per parameter in GPT-style models.</p>
+
+<h2>Next</h2>
+<ul>
+  <li>Is it the trained coordinates (storage) or the room between words (geometry)? Test: a
+  frozen random 64-dimensional word table, with the parameter count matched.</li>
+  <li>Is it the words' space or the model's width? Test: 8-dimensional words projected into a
+  64-wide model.</li>
+</ul>
+<p class="cap">Limits: small models, synthetic data, one learning rate, training capped at
+640,000 steps (the size-matched models were still improving slowly at the cap).</p>
+</section>
+
+<section id="setup">
+<h2>The language, the information and the model</h2>
+
+<p><b>The "language".</b> A made-up vocabulary of up to 1,024 creatures (foxes, crows, ...). Each
+creature is given a fixed list of facts: its colour, its food, where it lives, and so on. Each
+fact has four possible answers, and the answers are assigned at random. The model is never shown
+this list. It only reads short sentences generated from it (<i>foxes and crows are black .</i>,
+<i>foxes do not eat seeds .</i>, <i>are foxes and bears black ? no</i>) and is trained, like any
+language model, to predict the next word.</p>
+<img src="fig02_language.png" alt="One creature with its facts, and the four parts of the test">
+<p class="cap">Left: one creature and its facts, the true answers outlined. Right: the test. The
+model is given the words in the pale boxes and must supply the outlined one.</p>
+
+<p><b>Why a language is a known amount of information.</b> Because the answers are random, a
+creature's facts cannot be worked out from another creature or from any rule: the only way to
+answer is to have stored each fact. One fact with four equally likely answers is 2 bits, so a
+language holds creatures &times; facts &times; 2 bits and nothing else. The largest one here holds
+1,024 &times; 64 &times; 2 = 131,072 bits. The test measures how much of that a model has stored.</p>
+
+<p><b>How the information is varied.</b> By the number of creatures (16, 64, 256 or 1,024) and by
+the number of facts per creature (4, 8, 16, 32 or 64, that is 8 to 128 bits per creature).
+Creatures are used either equally often or with a Zipf distribution, as words are in real text.
+The results on this page are for 1,024 creatures used equally often.</p>
+
+<p><b>The word table.</b> The model's embedding matrix. It has one row for every word of the
+language, and a row is <i>d</i> trained numbers: the word's position in a <i>d</i>-dimensional
+space. When the model reads a word, that row is all it gets. <i>d</i> is the first thing varied:
+8, 16, 32 or 64. As in any transformer, <i>d</i> is also the size of the vectors that pass between
+the layers (the residual stream).</p>
+
+<p><b>The two widths.</b> Each of the model's 2 layers has an attention part, which works on the
+<i>d</i> numbers, and an MLP, which spreads them over <i>m</i> neurons and brings them back to
+<i>d</i>. <i>m</i> is the second thing varied, separately from <i>d</i>: 4, 8, 16, 32, 64 or 128
+neurons. Raising <i>m</i> adds parameters without adding dimensions; raising <i>d</i> adds both.
+Comparing the two is what separates "more parameters" from "more dimensions".</p>
+<div class="wrap">
+<svg viewBox="0 0 760 236" role="img" aria-label="The model: a word is looked up in the word table as d numbers, passes through two layers, each with attention on d numbers and an MLP of m neurons, and a read-out turns d numbers into the next word" style="min-width:640px;width:100%;height:auto;font-family:inherit">
+  <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#52514e"/></marker></defs>
+  <g fill="none" stroke-width="2">
+    <rect x="6" y="80" width="96" height="56" rx="4" stroke="#b9b8b2"/>
+    <rect x="140" y="62" width="176" height="92" rx="4" stroke="#1c5cab"/>
+    <rect x="354" y="20" width="262" height="176" rx="4" stroke="#b9b8b2" stroke-dasharray="5 4"/>
+    <rect x="370" y="58" width="230" height="46" rx="4" stroke="#1c5cab"/>
+    <rect x="370" y="122" width="230" height="58" rx="4" stroke="#e69f00"/>
+    <rect x="654" y="72" width="100" height="72" rx="4" stroke="#1c5cab"/>
+  </g>
+  <g stroke="#52514e" stroke-width="1.6" marker-end="url(#ar)">
+    <line x1="104" y1="108" x2="137" y2="108"/><line x1="318" y1="108" x2="351" y2="108"/>
+    <line x1="618" y1="108" x2="651" y2="108"/>
+  </g>
+  <g fill="#0b0b0b" font-size="14" text-anchor="middle">
+    <text x="54" y="103" fill="#52514e" font-size="12.5">a word</text><text x="54" y="123" font-family="monospace">foxes</text>
+    <text x="228" y="90" font-weight="600">word table</text>
+    <text x="228" y="113" font-size="13">one row for every word,</text><text x="228" y="132" font-size="13">d numbers in a row</text>
+    <text x="485" y="44" fill="#52514e" font-size="12.5">one layer (the model has 2)</text>
+    <text x="485" y="86" font-size="13"><tspan font-weight="600">attention</tspan>: works on d numbers</text>
+    <text x="485" y="147" font-size="13"><tspan font-weight="600">MLP</tspan>: d numbers in,</text>
+    <text x="485" y="166" font-size="13">m neurons, d numbers out</text>
+    <text x="704" y="98" font-weight="600">read-out</text>
+    <text x="704" y="118" font-size="13">d numbers</text><text x="704" y="135" font-size="13">to next word</text>
+  </g>
+  <rect x="6" y="213" width="13" height="13" fill="#1c5cab"/><text x="26" y="224.5" font-size="13" fill="#0b0b0b">d = 8, 16, 32 or 64 (dimensions)</text>
+  <rect x="318" y="213" width="13" height="13" fill="#e69f00"/><text x="338" y="224.5" font-size="13" fill="#0b0b0b">m = 4 to 128 (MLP width; up to 620 in the size-matched runs)</text>
+</svg>
+</div>
+<p class="cap">Every part outlined in blue has the size <i>d</i>; only the MLP's middle has the
+size <i>m</i>.</p>
+
+<p><b>The score.</b> "Facts known": given a creature and a kind of fact (<i>foxes are ...</i>), the
+model must rank the true answer first among the four. 100 means every fact of every creature; 25
+is guessing. In all 2,880 models were trained (960 combinations of the settings above, 3 random
+seeds each), plus 45 size-matched models.</p>
+
+<p class="terms">Words used in the figures below: <b>table columns</b> are the dimensions of a
+word's vector (the embedding size, which is also the width of the residual stream);
+<b>body width</b> is the number of neurons in each MLP; <b>trained numbers</b> are parameters.</p>
+
+<h2>The model</h2>
+<p>A transformer with 2 layers and 2 attention heads that reads a sentence word by word and
+predicts the next word, 512 sentences per training step. The word table holds a trained vector
+for every word. Each layer has an attention part and an MLP.</p>
+<p>More dimensions change three things at once: every word's vector, the attention parts (8 times
+the dimensions give them about 58 times the parameters), and the input and output of each MLP.
+Only the MLP width stays as it is. So the main runs can show that more dimensions help, but not
+which part does it. The size-matched runs were added to test whether the parameter count explains
+it.</p>
+<img src="fig03_columns.png" alt="Three parts of the model grow with the number of dimensions; parameter counts for 8, 16, 32 and 64">
+<p class="cap">Parameter counts of a model with 1,024 creatures, 8 bits per creature and an MLP
+of 16 neurons, at each number of dimensions.</p>
+
+<h2>What was varied, and what was held the same</h2>
+<p>Five settings were varied, giving 960 combinations, each trained with 3 seeds: 2,880 runs.
+Everything else was the same in every run:</p>
+<ul>
+  <li><b>One learning rate</b> (0.003), chosen by a fixed rule from 240 practice runs before the
+  counted runs began.</li>
+  <li><b>One text.</b> Every model of a language reads exactly the same sentences in the same
+  order.</li>
+  <li><b>One starting word table</b> with 64 dimensions. A model with fewer starts from its first
+  columns, so a word starts from the same numbers in every model.</li>
+  <li><b>2 layers and 2 heads</b> at every size.</li>
+</ul>
+<img src="fig04_dials.png" alt="The five settings that were varied and what was the same in every run">
+<p class="cap">With unequal word use, the second creature appears half as often as the first, the
+third a third as often, and so on, much as words do in real text.</p>
+<p>Five predictions about the outcome were written down before the counted runs began.</p>
+
+<h2>How a run ends</h2>
+<p>One rule sets the length of training, so that "cannot hold it" can be told from "has not
+learned it yet". A run is looked at after 40,000 steps and after each doubling, up to 640,000.
+It ends at the first look where one of these is true:</p>
+<ul>
+  <li><b>Learned:</b> facts known and questions about one creature are both 99 or more.</li>
+  <li><b>No more gain:</b> facts known rose by less than 1 point over the last doubling, and by
+  less than 1 point over the one before.</li>
+  <li><b>The limit:</b> it has reached 640,000 steps.</li>
+</ul>
+<p>A run's result is its scores at that point. To measure how often the rule stops a run too
+early, every tenth run was marked beforehand to be carried on for two more doublings.</p>
+<img src="fig05_rule.png" alt="Four example runs ending by the rule, and how the 2,880 runs ended">
+<p class="cap">Left: four runs, each drawn up to the look that ended it. Right: the 2,880 runs by
+reason and look.</p>
+
+<h2>The size-matched runs</h2>
+<p>For the language with 1,024 creatures and equal word use, at every bit size and for every pair
+of neighbouring dimension counts, the lower-dimensional model's MLP was widened (to 316 to 620
+neurons) until its total parameter count equalled that of the model with twice the dimensions and
+an MLP of 4 neurons, to within 0.07%. That is 15 models with 3 seeds each: 45 runs. Learning
+rate, text, seeds and stopping rule are those of the main runs, and every run was carried on.</p>
+
+<h2>Compute</h2>
+<p>All models were trained on rented Google Colab GPUs, many small models together on one card.
+The 2,880 main runs took 5.6 hours on up to ten machines; the 45 size-matched runs took one hour
+on two to three.</p>
+</section>
+
+<script>
+  function show() {
+    var setup = location.hash === "#setup";
+    document.getElementById("setup").hidden = !setup;
+    document.getElementById("results").hidden = setup;
+    document.getElementById("tab-setup").className = setup ? "on" : "";
+    document.getElementById("tab-results").className = setup ? "" : "on";
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener("hashchange", show);
+  show();
+</script>
+</main>
+</body>
+</html>
