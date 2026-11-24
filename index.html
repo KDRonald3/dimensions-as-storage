@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dimensions as storage: preliminary results</title>
+<style>
+  :root { --ink: #0b0b0b; --soft: #52514e; --line: #d9d8d2; --bg: #fcfcfb; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 17px/1.55 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+  main { max-width: 780px; margin: 0 auto; padding: 32px 16px 56px; }
+  h1 { font-size: 1.7em; line-height: 1.2; margin: 0 0 6px; }
+  h2 { font-size: 1.2em; margin: 40px 0 8px; }
+  .sub { color: var(--soft); margin: 0 0 24px; }
+  .key { border-left: 4px solid #1c5cab; padding: 4px 0 4px 14px; margin: 20px 0; }
+  img { width: 100%; height: auto; border: 1px solid var(--line); }
+  .cap { color: var(--soft); font-size: 0.9em; margin: 6px 0 0; }
+  .wrap { overflow-x: auto; }
+  table { border-collapse: collapse; margin: 8px 0 0; font-variant-numeric: tabular-nums; }
+  th, td { padding: 8px 12px; text-align: center; border: 2px solid var(--bg); }
+  th { font-weight: 600; font-size: 0.9em; color: var(--soft); }
+  td.w { color: #fff; }
+  ul { padding-left: 20px; }
+</style>
+</head>
+<body>
+<main>
+<h1>Small transformers store facts in the space their words live in</h1>
+<p class="sub">Preliminary results, November 2026</p>
+
+<p class="key">How much a model can remember depends mainly on the number of dimensions its words
+are represented in, not on its parameter count. At equal parameter count, the model with more
+dimensions knew more facts in every comparison that was not already at 100. Each coordinate of a
+word's vector stores about 3 bits of facts; an extra MLP weight stores about 0.5.</p>
+
+<p><b>Setup.</b> 2-layer, 2-head transformers are trained on a made-up language: 1,024 creatures,
+each with 8 to 128 bits of random facts, which the model is asked about. Two knobs are varied:
+the number of dimensions each word is represented in (8, 16, 32, 64, which is also the width of
+the residual stream) and the width of the MLP (4 to 128 neurons, up to 620 in a follow-up).
+2,880 models (3 seeds each), plus 45 size-matched models. Score: facts answered correctly out of
+100, where 25 is chance.</p>
+
+<h2>1. The dimensions set the limit; the MLP barely moves it</h2>
+<div class="wrap">
+<table>
+  <tr><th></th><th>8 bits</th><th>16 bits</th><th>32 bits</th><th>64 bits</th><th>128 bits</th></tr>
+  <tr><th>8 dims</th><td style="background:#fff">100</td><td style="background:#fde4cf">93</td><td style="background:#e8763a" class="w">65</td><td style="background:#b23b0b" class="w">52</td><td style="background:#8c2d04" class="w">42</td></tr>
+  <tr><th>16 dims</th><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fdf2e9">96</td><td style="background:#f8a56b">77</td><td style="background:#d9480f" class="w">59</td></tr>
+  <tr><th>32 dims</th><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fbc9a3">87</td></tr>
+  <tr><th>64 dims</th><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fff">100</td><td style="background:#fff">100</td></tr>
+</table>
+</div>
+<p class="cap">Facts known (out of 100) by dimensions of the word vectors and bits of facts per
+creature; middle of 3 seeds, MLP of 128 neurons. Where dimensions and bits double together, the
+score changes far less than along a row (e.g. 93, 96, 100, 100). By contrast, at 8 dimensions and 128 bits,
+widening the MLP from 4 to 128 to 457 neurons gave 39, 42, 42.</p>
+
+<h2>2. At the same parameter count, more dimensions win</h2>
+<img src="bridge.png" alt="Facts known against trained parameters for each bit size; at equal size the model with twice the dimensions knows more">
+<p class="cap">Every dot is one model. Each diamond is a lower-dimensional model whose MLP was
+widened (to 316 to 620 neurons) until it had as many trained parameters as the model with twice
+the dimensions, to within 0.07%. In all 8 pairs not both at 100, the higher-dimensional model
+knew more, by 4 to 23 points; in 6 of the 8, every seed scored below every seed of the
+higher-dimensional model.</p>
+
+<h2>3. A coordinate stores about 3 bits; an MLP weight about 0.5</h2>
+<img src="capacity.png" alt="Bits stored per coordinate of a word's vector (about 3) against per extra MLP weight (about 0.5)">
+<p class="cap">Estimated on the 128-bit language, counting each fact as either known or guessed.
+The per-coordinate figure is nearly the same at every dimension. For comparison, Morris et al.
+(2025) measured about 3.6 bits per parameter in GPT-style models.</p>
+
+<h2>Next</h2>
+<ul>
+  <li>Is it the trained coordinates (storage) or the room between words (geometry)? Test: a
+  frozen random 64-dimensional word table, with the parameter count matched.</li>
+  <li>Is it the words' space or the model's width? Test: 8-dimensional words projected into a
+  64-wide model.</li>
+</ul>
+<p class="cap">Limits: small models, synthetic data, one learning rate, training capped at
+640,000 steps (the size-matched models were still improving slowly at the cap).</p>
+</main>
+</body>
+</html>
