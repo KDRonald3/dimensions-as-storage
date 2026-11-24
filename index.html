@@ -40,12 +40,77 @@ are represented in, not on its parameter count. At equal parameter count, the mo
 dimensions knew more facts in every comparison that was not already at 100. Each coordinate of a
 word's vector stores about 3 bits of facts; an extra MLP weight stores about 0.5.</p>
 
-<p><b>Setup.</b> 2-layer, 2-head transformers are trained on a made-up language: 1,024 creatures,
-each with 8 to 128 bits of random facts, which the model is asked about. Two knobs are varied:
-the number of dimensions each word is represented in (8, 16, 32, 64, which is also the width of
-the residual stream) and the width of the MLP (4 to 128 neurons, up to 620 in a follow-up).
-2,880 models (3 seeds each), plus 45 size-matched models. Score: facts answered correctly out of
-100, where 25 is chance.</p>
+<h2>The experiment in brief</h2>
+
+<p><b>The "language".</b> A made-up vocabulary of up to 1,024 creatures (foxes, crows, ...). Each
+creature is given a fixed list of facts: its colour, its food, where it lives, and so on. Each
+fact has four possible answers, and the answers are assigned at random. The model is never shown
+this list. It only reads short sentences generated from it (<i>foxes and crows are black .</i>,
+<i>foxes do not eat seeds .</i>, <i>are foxes and bears black ? no</i>) and is trained, like any
+language model, to predict the next word.</p>
+<img src="fig02_language.png" alt="One creature with its facts, and the four parts of the test">
+<p class="cap">Left: one creature and its facts, the true answers outlined. Right: the test. The
+model is given the words in the pale boxes and must supply the outlined one.</p>
+
+<p><b>Why a language is a known amount of information.</b> Because the answers are random, a
+creature's facts cannot be worked out from another creature or from any rule: the only way to
+answer is to have stored each fact. One fact with four equally likely answers is 2 bits, so a
+language holds creatures &times; facts &times; 2 bits and nothing else. The largest one here holds
+1,024 &times; 64 &times; 2 = 131,072 bits. The test measures how much of that a model has stored.</p>
+
+<p><b>How the information is varied.</b> By the number of creatures (16, 64, 256 or 1,024) and by
+the number of facts per creature (4, 8, 16, 32 or 64, that is 8 to 128 bits per creature).
+Creatures are used either equally often or with a Zipf distribution, as words are in real text.
+The results on this page are for 1,024 creatures used equally often.</p>
+
+<p><b>The word table.</b> The model's embedding matrix. It has one row for every word of the
+language, and a row is <i>d</i> trained numbers: the word's position in a <i>d</i>-dimensional
+space. When the model reads a word, that row is all it gets. <i>d</i> is the first thing varied:
+8, 16, 32 or 64. As in any transformer, <i>d</i> is also the size of the vectors that pass between
+the layers (the residual stream).</p>
+
+<p><b>The two widths.</b> Each of the model's 2 layers has an attention part, which works on the
+<i>d</i> numbers, and an MLP, which spreads them over <i>m</i> neurons and brings them back to
+<i>d</i>. <i>m</i> is the second thing varied, separately from <i>d</i>: 4, 8, 16, 32, 64 or 128
+neurons. Raising <i>m</i> adds parameters without adding dimensions; raising <i>d</i> adds both.
+Comparing the two is what separates "more parameters" from "more dimensions".</p>
+<div class="wrap">
+<svg viewBox="0 0 760 236" role="img" aria-label="The model: a word is looked up in the word table as d numbers, passes through two layers, each with attention on d numbers and an MLP of m neurons, and a read-out turns d numbers into the next word" style="min-width:640px;width:100%;height:auto;font-family:inherit">
+  <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#52514e"/></marker></defs>
+  <g fill="none" stroke-width="2">
+    <rect x="6" y="80" width="96" height="56" rx="4" stroke="#b9b8b2"/>
+    <rect x="140" y="62" width="176" height="92" rx="4" stroke="#1c5cab"/>
+    <rect x="354" y="20" width="262" height="176" rx="4" stroke="#b9b8b2" stroke-dasharray="5 4"/>
+    <rect x="370" y="58" width="230" height="46" rx="4" stroke="#1c5cab"/>
+    <rect x="370" y="122" width="230" height="58" rx="4" stroke="#e69f00"/>
+    <rect x="654" y="72" width="100" height="72" rx="4" stroke="#1c5cab"/>
+  </g>
+  <g stroke="#52514e" stroke-width="1.6" marker-end="url(#ar)">
+    <line x1="104" y1="108" x2="137" y2="108"/><line x1="318" y1="108" x2="351" y2="108"/>
+    <line x1="618" y1="108" x2="651" y2="108"/>
+  </g>
+  <g fill="#0b0b0b" font-size="14" text-anchor="middle">
+    <text x="54" y="103" fill="#52514e" font-size="12.5">a word</text><text x="54" y="123" font-family="monospace">foxes</text>
+    <text x="228" y="90" font-weight="600">word table</text>
+    <text x="228" y="113" font-size="13">one row for every word,</text><text x="228" y="132" font-size="13">d numbers in a row</text>
+    <text x="485" y="44" fill="#52514e" font-size="12.5">one layer (the model has 2)</text>
+    <text x="485" y="86" font-size="13"><tspan font-weight="600">attention</tspan>: works on d numbers</text>
+    <text x="485" y="147" font-size="13"><tspan font-weight="600">MLP</tspan>: d numbers in,</text>
+    <text x="485" y="166" font-size="13">m neurons, d numbers out</text>
+    <text x="704" y="98" font-weight="600">read-out</text>
+    <text x="704" y="118" font-size="13">d numbers</text><text x="704" y="135" font-size="13">to next word</text>
+  </g>
+  <rect x="6" y="213" width="13" height="13" fill="#1c5cab"/><text x="26" y="224.5" font-size="13" fill="#0b0b0b">d = 8, 16, 32 or 64 (dimensions)</text>
+  <rect x="318" y="213" width="13" height="13" fill="#e69f00"/><text x="338" y="224.5" font-size="13" fill="#0b0b0b">m = 4 to 128 (MLP width; up to 620 in the size-matched runs)</text>
+</svg>
+</div>
+<p class="cap">Every part outlined in blue has the size <i>d</i>; only the MLP's middle has the
+size <i>m</i>.</p>
+
+<p><b>The score.</b> "Facts known": given a creature and a kind of fact (<i>foxes are ...</i>), the
+model must rank the true answer first among the four. 100 means every fact of every creature; 25
+is guessing. In all 2,880 models were trained (960 combinations of the settings above, 3 random
+seeds each), plus 45 size-matched models.</p>
 
 <h2>1. The dimensions set the limit; the MLP barely moves it</h2>
 <div class="wrap">
@@ -66,8 +131,9 @@ widening the MLP from 4 to 128 to 457 neurons gave 39, 42, 42.</p>
 <img src="pairs.png" alt="Eight pairs of models with equal parameter counts; in each, the model with twice the dimensions knows more facts">
 <p class="cap">Each row is one parameter count and two models that both have it: one with half
 the dimensions and a very wide MLP (316 to 620 neurons), one with twice the dimensions and an MLP
-of 4 neurons. In all 8 pairs that were not both at 100, the higher-dimensional model knew more:
-by 4 to 23 points in seven of them, and by under 1 point in the eighth (99.4 against 100). In 6
+of 4 neurons. Comparing each model's best of three seeds, the higher-dimensional model knew more in all 8
+pairs that were not both at 100: by 6 to 20 points in seven of them, and by under 1 point in the
+eighth (99.8 against 100). The middle seeds give the same picture (4 to 23 points, and 0.6). In 6
 of the 8, every seed scored below every seed of the higher-dimensional model. The other 7 pairs
 tested (lighter loads) both reached 100.</p>
 
@@ -99,9 +165,6 @@ so it is worth 2 bits. A model is never shown the facts directly. It only reads 
 one to four creatures: statements (<i>foxes and crows are black .</i>), "not" statements
 (<i>foxes do not eat seeds .</i>) and questions with their answer (<i>are foxes and bears black ?
 no</i>). After training it takes a fixed test of four parts. Facts known is the main score.</p>
-<img src="fig02_language.png" alt="One creature with its facts, and the four parts of the test">
-<p class="cap">Left: one creature, its true answers outlined. Right: in each part of the test the
-model is given the words in the pale boxes and must supply the outlined one.</p>
 
 <h2>The model</h2>
 <p>A transformer with 2 layers and 2 attention heads that reads a sentence word by word and
