@@ -1,12 +1,1 @@
-.venv/
-__pycache__/
-*.pyc
-.pytest_cache/
-# trained weights, checkpoints and logs are not kept in the repository
-*.pt
-logs/
-runs/
-_fleet/
-_groups/
-_so_far/
-_kaggle/
+.DS_Store

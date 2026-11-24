@@ -1,4 +1,0 @@
-{"steps": 40000, "lr": 0.01, "pilot_steps": 20000, "pilot_steps_64bits": 40000,
- "bits16": {"steps": 40000, "lr": 0.01},
- "bits32": {"steps": 60000, "lr": 0.01},
- "bits64": {"steps": 160000, "lr": 0.003}}
