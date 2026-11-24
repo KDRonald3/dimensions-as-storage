@@ -218,10 +218,38 @@ neurons) until its total parameter count equalled that of the model with twice t
 an MLP of 4 neurons, to within 0.07%. That is 15 models with 3 seeds each: 45 runs. Learning
 rate, text, seeds and stopping rule are those of the main runs, and every run was carried on.</p>
 
-<h2>Compute</h2>
-<p>All models were trained on rented Google Colab GPUs, many small models together on one card.
-The 2,880 main runs took 5.6 hours on up to ten machines; the 45 size-matched runs took one hour
-on two to three.</p>
+<h2>The training runs: settings, time and cost</h2>
+<p><b>One run.</b> A model reads 512 sentences per training step (a sentence is up to 13 tokens)
+and is trained with AdamW at a learning rate of 0.003: 100 warm-up steps, then constant, no
+weight decay, gradients clipped at 1.0, 32-bit arithmetic. An averaged copy of the weights
+(decay 0.998) takes the test. A run lasts 40,000 to 640,000 steps, set by the stopping rule
+above. The models have 1,558 to 176,074 trained parameters. Because they are so small, 3 to 24
+of them are trained together in one program on one graphics card.</p>
+
+<div class="wrap">
+<table>
+  <tr><th style="text-align:left">Stage</th><th>Runs</th><th>Training steps,<br>all models</th><th>Sentences<br>read</th><th>Time</th><th>Cost</th></tr>
+  <tr><td style="text-align:left">Main runs</td><td>2,880</td><td>727 million</td><td>372 billion</td><td>5.6 h</td><td>about $28</td></tr>
+  <tr><td style="text-align:left">Learning-rate check</td><td>960</td><td>289 million</td><td>148 billion</td><td>2.2 h</td><td>about $15</td></tr>
+  <tr><td style="text-align:left">Size-matched runs</td><td>45</td><td>19 million</td><td>10 billion</td><td>1.0 h</td><td>about $1.40</td></tr>
+  <tr><td style="text-align:left"><b>All</b></td><td><b>3,885</b></td><td><b>1.04 billion</b></td><td><b>530 billion</b></td><td><b>8.8 h</b></td><td><b>about $45</b></td></tr>
+</table>
+</div>
+<p class="cap">Time is the time from the first run starting to the last one ending. Cost is in
+Google Colab compute units at $0.10 each (about 282, 150 and 14 units). The learning-rate check
+trained the best seed of each of the 960 settings again at a third of the rate; it changed
+little. Not counted: the 240 short practice runs that chose the learning rate.</p>
+
+<p><b>Where they ran.</b> On rented Google Colab GPUs, up to ten machines at once, of whichever
+types Colab had free: T4, L4, A100, G4 and one H100. A scheduler written for this project hands
+the groups of models to the machines, moves work to faster cards as they become free and brings
+the results home.</p>
+
+<p><b>On an H100 alone.</b> One H100 would need an estimated 20 to 45 hours for all of the above,
+which is about $45 to $95 at Colab's price for it (21.8 units, about $2.18, an hour). The range
+comes from how full the card is kept: about 22 hours at the speed it reaches with full groups of
+models, about 43 hours at the speed measured when it joined late in a stage and only small groups
+were left. These are estimates from measured speeds, not a run on a single H100.</p>
 </section>
 
 <script>
